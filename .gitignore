@@ -1,0 +1,26 @@
+# ===== NEVER commit these (secrets!) =====
+.env
+google_credentials.json
+# Google OAuth client secrets + cached user token
+inactiveness_client.json
+*_client.json
+google_token.json
+
+# ===== Don't commit generated/runtime stuff =====
+logs/
+__pycache__/
+*.pyc
+*.zip
+venv/
+.venv/
+.claude/
+
+# ===== Real workspace data (audit samples) — never publish =====
+im_create_chat_last_1_day.json
+messenger_audit_module2_sample.json
+docs/daily_report_preview.html
+docs/weekly_report_preview.html
+
+# ===== OS junk =====
+.DS_Store
+Thumbs.db

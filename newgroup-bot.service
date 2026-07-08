@@ -1,0 +1,19 @@
+# systemd service — the NO-DOCKER alternative.
+# Lets the bot auto-start on boot and auto-restart on crash,
+# without Docker. Copy this to /etc/systemd/system/ (see DEPLOY.md).
+
+[Unit]
+Description=New Group Monitor Bot
+After=network.target
+
+[Service]
+Type=simple
+# Change this to where you put the bot and which user runs it:
+WorkingDirectory=/home/youruser/newgroup_bot
+ExecStart=/home/youruser/newgroup_bot/venv/bin/python main.py
+Restart=always
+RestartSec=5
+User=youruser
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,25 @@
+# Docker Compose — defines how to run the bot.
+# Run everything with: docker compose up -d
+
+services:
+  bot:
+    build: .                      # build from the Dockerfile in this folder
+    container_name: newgroup-bot
+    restart: unless-stopped       # auto-restart on crash or server reboot
+    ports:
+      - "8000:8000"               # map server port 8000 -> container port 8000
+    env_file:
+      - .env                      # load all your secrets/config from .env
+    volumes:
+      # Persist logs on the host so they survive container restarts
+      - ./logs:/app/logs
+      # Google OAuth client secrets (read-only) — path must match
+      # GOOGLE_CREDENTIALS_PATH in .env
+      - ./inactiveness_client.json:/app/inactiveness_client.json:ro
+      # Cached Google user token — must be WRITABLE (the bot refreshes it)
+      - ./google_token.json:/app/google_token.json
+    # Keep memory modest on a small server
+    deploy:
+      resources:
+        limits:
+          memory: 512M
