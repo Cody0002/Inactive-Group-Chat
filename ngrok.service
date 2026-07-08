@@ -17,8 +17,9 @@ Wants=network-online.target
 [Service]
 # Reads the authtoken from this user's ~/.config/ngrok/ngrok.yml
 # (created by `ngrok config add-authtoken ...` run as that user)
-User=youruser
-ExecStart=/usr/local/bin/ngrok http --domain=inactive-group-bot.ngrok.app 8000 --log stdout
+User=ubuntu
+# apt package installs to /usr/bin/ngrok; snap would be /snap/bin/ngrok
+ExecStart=/usr/bin/ngrok http --domain=inactive-group-bot.ngrok.app 8000 --log stdout
 Restart=always
 RestartSec=5
 
