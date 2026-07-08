@@ -1,0 +1,26 @@
+# systemd unit for the ngrok tunnel that exposes the bot to Lark.
+#
+# Install (run on the server):
+#   1. Edit the User= line below to your server username.
+#   2. sudo cp ngrok.service /etc/systemd/system/
+#   3. sudo systemctl daemon-reload
+#   4. sudo systemctl enable --now ngrok
+#
+# Check:   systemctl status ngrok
+# Logs:    journalctl -u ngrok -f
+
+[Unit]
+Description=ngrok tunnel (inactive-group-bot.ngrok.app -> localhost:8000)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# Reads the authtoken from this user's ~/.config/ngrok/ngrok.yml
+# (created by `ngrok config add-authtoken ...` run as that user)
+User=youruser
+ExecStart=/usr/local/bin/ngrok http --domain=inactive-group-bot.ngrok.app 8000 --log stdout
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
