@@ -110,6 +110,26 @@ def _sheet_url() -> str:
     return f"https://docs.google.com/spreadsheets/d/{settings.SPREADSHEET_ID}/edit"
 
 
+def _stat_tiles(stats: list[tuple[str, str, str, str]]) -> dict:
+    """A row of stat tiles: [(value, label, font_color, dot_emoji), …] —
+    big colored number over a small label, one tile per column."""
+    cols = []
+    for value, label, color, dot in stats:
+        cols.append({
+            "tag": "column", "width": "weighted", "weight": 1,
+            "background_style": "grey", "vertical_align": "top",
+            "elements": [
+                {"tag": "markdown", "text_align": "center",
+                 "text_size": "heading",
+                 "content": f"<font color='{color}'>**{value}**</font>"},
+                {"tag": "markdown", "text_align": "center",
+                 "text_size": "notation", "content": f"{dot} {label}"},
+            ],
+        })
+    return {"tag": "column_set", "flex_mode": "none",
+            "horizontal_spacing": "default", "columns": cols}
+
+
 def _creator_md(name: str) -> str:
     """Bold the display name before the first '|' (e.g. '**Danny** | OA | …')."""
     name = (name or "unknown").strip()
@@ -287,10 +307,19 @@ def weekly_summary_card(groups: list, threshold: int, personal_max: int = 3) -> 
     range_label = (f"{week_ago.astimezone(tz).strftime('%b %d')} → "
                    f"{now.astimezone(tz).strftime('%b %d')}")
 
+    active = sum(1 for g in groups if g.get("state") == "active")
+    warning = sum(1 for g in groups if g.get("state") == "warning")
+    inact_state = sum(1 for g in groups if g.get("state") == "inactive")
+
     elements = [
-        _div(f"**{len(groups)}** group(s) monitored   ·   "
-             f"🆕 **{len(created_week)}** created this week   ·   "
-             f"😴 **{len(inactive)}** quiet >{quiet_floor}d"),
+        _note(f"📅  Week ending "
+              f"{now.astimezone(tz).strftime('%b %d, %Y')}"),
+        _div(f"**{len(groups)}** groups monitored"),
+        _stat_tiles([
+            (str(active), "Active", "green", "🟢"),
+            (str(warning), "Warning", "orange", "🟠"),
+            (str(inact_state), "Inactive", "red", "🔴"),
+        ]),
         _hr(),
         _div(f"**A  ·  🆕  Groups created this week "
              f"({range_label}) — {len(created_week)}**"),
