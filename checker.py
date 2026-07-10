@@ -283,7 +283,8 @@ def _leak_risk(group: dict) -> int:
 def _today_window(now: datetime) -> tuple[datetime, datetime, str]:
     """Return (start, end, label) for 'today so far' in the configured local
     timezone: local midnight → right now. So the scheduled noon report covers
-    00:00-12:00 and a /daily typed at 19:00 covers 00:00-19:00."""
+    00:00-12:00, the 17:00 one covers 00:00-17:00 (morning groups appear again
+    alongside the afternoon ones), and a /daily typed at 19:00 covers 00:00-19:00."""
     tz = ZoneInfo(settings.DAILY_REPORT_TZ)
     local = now.astimezone(tz)
     start = local.replace(hour=0, minute=0, second=0, microsecond=0)

@@ -421,8 +421,10 @@ def help_card() -> str:
             _div("\n".join(f"- **{cmd}** : {desc}" for cmd, desc in commands)),
             _hr(),
             _div("**Automatic**\n"
-                 f"· 📋  Daily report at {settings.DAILY_REPORT_HOUR}:00 (GMT+7)\n"
-                 "· 📊  Weekly report on Friday at 17:00 (GMT+7)\n"
+                 f"· 📋  Daily report at {settings.DAILY_REPORT_HOUR}:00 & "
+                 f"{settings.DAILY_REPORT_HOUR_PM}:00 (GMT+7)\n"
+                 f"· 📊  Weekly report on Friday at {settings.DAILY_REPORT_HOUR_PM}:00 "
+                 "(GMT+7) — replaces that afternoon's daily report\n"
                  f"· ⚠️  Alert when a group is quiet for over "
                  f"{settings.INACTIVITY_THRESHOLD_DAYS} days"),
             _note("Nothing to authorize — it just works."),

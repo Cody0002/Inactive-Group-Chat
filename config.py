@@ -43,7 +43,11 @@ class Settings(BaseSettings):
 
     # Daily digest schedule (local time). Bangkok = UTC+7, no DST.
     DAILY_REPORT_TZ: str = "Asia/Bangkok"
-    DAILY_REPORT_HOUR: int = 12   # noon local
+    DAILY_REPORT_HOUR: int = 12      # noon local
+    # Afternoon digest — every day EXCEPT Friday, when the weekly report goes
+    # out at this same hour instead. Also used as the weekly report hour so
+    # the two can never collide.
+    DAILY_REPORT_HOUR_PM: int = 17
 
     # New groups are logged silently and surfaced in the daily digest.
     # Set true to also push a card the moment each group is created.

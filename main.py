@@ -50,14 +50,23 @@ async def lifespan(app: FastAPI):
                                   timezone=settings.DAILY_REPORT_TZ),
                       id="daily_check", replace_existing=True, misfire_grace_time=3600,
                       coalesce=True, max_instances=1)
+    # No afternoon digest on Friday — the weekly report goes out then instead.
+    scheduler.add_job(run_daily_check,
+                      CronTrigger(day_of_week="mon-thu,sat,sun",
+                                  hour=settings.DAILY_REPORT_HOUR_PM, minute=0,
+                                  timezone=settings.DAILY_REPORT_TZ),
+                      id="daily_check_pm", replace_existing=True, misfire_grace_time=3600,
+                      coalesce=True, max_instances=1)
     scheduler.add_job(run_weekly_summary,
-                      CronTrigger(day_of_week="fri", hour=17, minute=0,
+                      CronTrigger(day_of_week="fri",
+                                  hour=settings.DAILY_REPORT_HOUR_PM, minute=0,
                                   timezone=settings.DAILY_REPORT_TZ),
                       id="weekly_summary", replace_existing=True, misfire_grace_time=3600,
                       coalesce=True, max_instances=1)
     scheduler.start()
-    logger.info(f"Scheduled: hourly refresh, daily {settings.DAILY_REPORT_HOUR}:00 "
-                f"and weekly Fri 17:00 {settings.DAILY_REPORT_TZ}")
+    logger.info(f"Scheduled: hourly refresh, daily {settings.DAILY_REPORT_HOUR}:00 & "
+                f"{settings.DAILY_REPORT_HOUR_PM}:00 (Fri PM = weekly report) "
+                f"{settings.DAILY_REPORT_TZ}")
 
     # 30-day base build on first run (empty sheet); normal refresh otherwise.
     # Runs in the background so the webhook starts serving immediately.

@@ -11,11 +11,13 @@ You don't need to authorize anything. It just works.
 
 ## What it sends you
 
-### 📋 Daily report — every day at 12:00 (Bangkok time)
+### 📋 Daily report — every day at 12:00 and 17:00 (Bangkok time)
+
+No 17:00 report on Friday — the weekly report goes out then instead.
 
 One message with up to **two short tables**:
 
-1. **🆕 New groups** — groups created since yesterday noon (name, creator, time).
+1. **🆕 New groups** — groups created today so far (name, creator, time).
 2. **⏳ Approaching / inactive** — groups going quiet, with how many days they've
    been silent. 🔴 means already past the limit, 🟠 means getting close.
 
@@ -26,7 +28,7 @@ If there's nothing new and nothing going quiet, the bot stays silent — no nois
 When a group has been silent past the limit (default **180 days**), the bot posts
 a one-time alert to the central group. It won't repeat that alert for **7 days**.
 
-### 📊 Weekly report — every Friday, 17:00 UTC
+### 📊 Weekly report — every Friday, 17:00 (Bangkok time)
 
 A wider summary: how many groups are active, getting quiet, or inactive.
 
