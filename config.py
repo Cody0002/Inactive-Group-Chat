@@ -41,6 +41,18 @@ class Settings(BaseSettings):
     # Group size split: <= this many members at creation = "Personal", else "Team".
     PERSONAL_GROUP_MAX_MEMBERS: int = 3
 
+    # Groups created by these people are ignored entirely: never added to the
+    # sheet, and existing rows are hidden from checks/reports. Comma-separated;
+    # each entry matches as a case-insensitive SUBSTRING of the creator name.
+    EXCLUDED_CREATORS: str = (
+        "Daniela | Special Projects Lead,"
+        "Zac | Special Projects Lead,"
+        "Sam ( AAA ) | COO,"
+        "Will ( J ) | CEO,"
+        "Yohann,"
+        "Chun0087"
+    )
+
     # Daily digest schedule (local time). Bangkok = UTC+7, no DST.
     DAILY_REPORT_TZ: str = "Asia/Bangkok"
     DAILY_REPORT_HOUR: int = 12      # noon local
@@ -72,3 +84,16 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
+_EXCLUDED_CREATOR_TOKENS = [
+    t.strip().lower() for t in settings.EXCLUDED_CREATORS.split(",") if t.strip()
+]
+
+
+def is_excluded_creator(creator_name: str) -> bool:
+    """True if groups created by this person should not be tracked.
+    Case-insensitive substring match against EXCLUDED_CREATORS."""
+    if not creator_name:
+        return False
+    name = str(creator_name).lower()
+    return any(tok in name for tok in _EXCLUDED_CREATOR_TOKENS)

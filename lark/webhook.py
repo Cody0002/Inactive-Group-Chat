@@ -14,7 +14,7 @@ import time
 
 from fastapi import APIRouter, Request, HTTPException
 
-from config import settings
+from config import settings, is_excluded_creator
 from lark import api, cards
 from storage.sheets import get_sheets
 from utils.logger import get_logger
@@ -98,6 +98,10 @@ async def _handle_new_group(event: dict):
             creator_name = info.get("name", creator_id)
         except Exception:
             pass
+
+    if is_excluded_creator(creator_name):
+        logger.info(f"Ignoring group by excluded creator: {name} (by {creator_name})")
+        return
 
     sheets = get_sheets()
     if not sheets.log_new_group(chat_id, name, creator_id, creator_name):

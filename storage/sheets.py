@@ -23,7 +23,7 @@ from typing import Optional
 
 import gspread
 
-from config import settings
+from config import settings, is_excluded_creator
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -220,7 +220,10 @@ class SheetsClient:
             self.groups.update_cells(row, updates)
 
     def get_all_groups(self) -> list[dict]:
-        return self.groups.records()
+        """Every tracked group, minus those from excluded creators — rows
+        already in the sheet stay there but are invisible to checks/reports."""
+        return [r for r in self.groups.records()
+                if not is_excluded_creator(str(r.get("creator_name", "")))]
 
     def bulk_update_group_activity(self, changes: dict[str, dict[str, str]]):
         """Write activity fields for many groups in ONE batch call.
