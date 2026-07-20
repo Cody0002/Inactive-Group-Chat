@@ -1,0 +1,122 @@
+{
+  "checker.py": {
+    "mtime": 1783931252.4125173,
+    "ast_hash": "542292dc6615fccdff745fc3f625a7c5",
+    "semantic_hash": "542292dc6615fccdff745fc3f625a7c5"
+  },
+  "config.py": {
+    "mtime": 1783931217.0635035,
+    "ast_hash": "66669e4bce6adfcd5a524b305e1f8bd2",
+    "semantic_hash": "66669e4bce6adfcd5a524b305e1f8bd2"
+  },
+  "get_tenant_token.py": {
+    "mtime": 1782980070.7119393,
+    "ast_hash": "934b967d9e71207a80532d16032f4384",
+    "semantic_hash": "934b967d9e71207a80532d16032f4384"
+  },
+  "lark/__init__.py": {
+    "mtime": 1780374176.0112915,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "lark/api.py": {
+    "mtime": 1783503819.7613566,
+    "ast_hash": "6fe197a75eb38c1361478771f84d76da",
+    "semantic_hash": "6fe197a75eb38c1361478771f84d76da"
+  },
+  "lark/cards.py": {
+    "mtime": 1784283290.9455957,
+    "ast_hash": "751e822cac8dcaed07cdedd189b5c08e",
+    "semantic_hash": "751e822cac8dcaed07cdedd189b5c08e"
+  },
+  "lark/webhook.py": {
+    "mtime": 1783925255.3192718,
+    "ast_hash": "68e90651811087c2dba555a151c51fd7",
+    "semantic_hash": "68e90651811087c2dba555a151c51fd7"
+  },
+  "main.py": {
+    "mtime": 1783931225.0998268,
+    "ast_hash": "ca4d4ace8ceaf5d9e4fa4b2618d4672f",
+    "semantic_hash": "ca4d4ace8ceaf5d9e4fa4b2618d4672f"
+  },
+  "newgroups.py": {
+    "mtime": 1783925255.3204334,
+    "ast_hash": "95519a6aaa36d32fe9fde56620f8ba60",
+    "semantic_hash": "95519a6aaa36d32fe9fde56620f8ba60"
+  },
+  "request.py": {
+    "mtime": 1783399256.1518142,
+    "ast_hash": "54b30a2013578fbc7c9a06472e64c736",
+    "semantic_hash": "54b30a2013578fbc7c9a06472e64c736"
+  },
+  "storage/__init__.py": {
+    "mtime": 1780374176.038353,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "storage/sheets.py": {
+    "mtime": 1783925255.322081,
+    "ast_hash": "09e5ce059dc572f5a6237cda962f575b",
+    "semantic_hash": "09e5ce059dc572f5a6237cda962f575b"
+  },
+  "utils/__init__.py": {
+    "mtime": 1780374176.063879,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "utils/http.py": {
+    "mtime": 1780374176.058359,
+    "ast_hash": "2e2a2cb62ca0e05f2ab4f2eaa6716b75",
+    "semantic_hash": "2e2a2cb62ca0e05f2ab4f2eaa6716b75"
+  },
+  "utils/logger.py": {
+    "mtime": 1780374176.068889,
+    "ast_hash": "df64c8aa185f75b83ace8c3ac55465f3",
+    "semantic_hash": "df64c8aa185f75b83ace8c3ac55465f3"
+  },
+  "weekly_summary.py": {
+    "mtime": 1783496623.3032095,
+    "ast_hash": "ac83c3d15ee236cb646c36cd3f25e2e5",
+    "semantic_hash": "ac83c3d15ee236cb646c36cd3f25e2e5"
+  },
+  "DEPLOY.md": {
+    "mtime": 1783506594.8527412,
+    "ast_hash": "3153d61507a04c9987c73f44afb93e54",
+    "semantic_hash": "3153d61507a04c9987c73f44afb93e54"
+  },
+  "README.md": {
+    "mtime": 1783421589.3884869,
+    "ast_hash": "f7381a17797a01e891eecfe7f7bc1b25",
+    "semantic_hash": "f7381a17797a01e891eecfe7f7bc1b25"
+  },
+  "docker-compose.yml": {
+    "mtime": 1783506558.8388746,
+    "ast_hash": "083b48113844fe40789f56452ea51384",
+    "semantic_hash": "083b48113844fe40789f56452ea51384"
+  },
+  "docs/bot_message_plan.md": {
+    "mtime": 1783421589.3916142,
+    "ast_hash": "66c8cc31e911e5310a674b73cd1a5be5",
+    "semantic_hash": "66c8cc31e911e5310a674b73cd1a5be5"
+  },
+  "docs/bot_overview.md": {
+    "mtime": 1783931254.3871253,
+    "ast_hash": "eeca111bcc02112613a0edf8cbaf5168",
+    "semantic_hash": "eeca111bcc02112613a0edf8cbaf5168"
+  },
+  "docs/lark_messenger_audit_data_dictionary.md": {
+    "mtime": 1782983406.4818919,
+    "ast_hash": "1d0d6dfd08ee0c46e08f8c0c74af7e79",
+    "semantic_hash": "1d0d6dfd08ee0c46e08f8c0c74af7e79"
+  },
+  "environment.yml": {
+    "mtime": 1782979812.6381252,
+    "ast_hash": "de39d05e7e48b10411bfc4c9009ee3f0",
+    "semantic_hash": "de39d05e7e48b10411bfc4c9009ee3f0"
+  },
+  "requirements.txt": {
+    "mtime": 1782985254.5882242,
+    "ast_hash": "74561cfbd842938c3ec06dd8a03f5705",
+    "semantic_hash": "74561cfbd842938c3ec06dd8a03f5705"
+  }
+}

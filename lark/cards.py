@@ -83,17 +83,18 @@ def _col(name: str, display: str, dtype: str = "text",
     return col
 
 
-def _table(columns: list[dict], rows: list[dict], page_size: int = 10) -> dict:
+def _table(columns: list[dict], rows: list[dict], page_size: int = 10,
+           compact: bool = False) -> dict:
     return {
         "tag": "table",
         "page_size": page_size,
-        "row_height": "low",
+        "row_height": "32px" if compact else "low",
         "header_style": {
             "text_align": "left",
             "text_size": "normal",
             "background_style": "grey",
             "text_color": "grey",
-            "bold": True,
+            "bold": not compact,
             "lines": 1,
         },
         "columns": columns,
@@ -137,6 +138,12 @@ def _creator_md(name: str) -> str:
         first, rest = name.split("|", 1)
         return f"**{first.strip()}** | {rest.strip()}"
     return f"**{name}**"
+
+
+def _creator_short(name: str) -> str:
+    """Keep just the display name, without the pipe-separated org path."""
+    display_name = (name or "unknown").split("|", 1)[0].strip()
+    return display_name or "unknown"
 
 
 def _members(group: dict) -> int | None:
@@ -334,16 +341,16 @@ def weekly_summary_card(groups: list, threshold: int, personal_max: int = 3) -> 
             n = _members(g)
             rows.append({
                 "group": name,
-                "creator": _creator_md(g.get("creator_name")),
+                "creator": _creator_short(g.get("creator_name")),
                 "members": str(n) if n is not None else "—",
                 "created": _local_dt(g.get("created_at", ""), "%b %d"),
             })
         elements.append(_table(
-            [_col("group", "Group", width="46%"),
-             _col("creator", "Creator", dtype="lark_md", width="24%"),
-             _col("members", "Members", align="right", width="14%"),
-             _col("created", "Created", width="16%")],
-            rows))
+            [_col("group", "Group", width="44%"),
+             _col("creator", "Creator", width="30%"),
+             _col("members", "Mbrs", align="right", width="10%"),
+             _col("created", "Date", width="16%")],
+            rows, compact=True))
     else:
         elements.append(_note("No new groups this week."))
 
@@ -361,17 +368,17 @@ def weekly_summary_card(groups: list, threshold: int, personal_max: int = 3) -> 
             days = _days(g)
             rows.append({
                 "group": name,
+                "creator": _creator_short(g.get("creator_name")),
                 "members": str(n) if n is not None else "—",
                 # colored tag so the severity pops: red = quiet 90d+, orange = 30d+
                 "days": _opt(f"{days}d", "red" if days >= 90 else "orange"),
-                "last_active": _local_dt(g.get("last_activity_at", ""), "%b %d"),
             })
         elements.append(_table(
-            [_col("group", "Group", width="48%"),
-             _col("members", "Members", align="right", width="14%"),
-             _col("days", "Days Inactive", dtype="options", width="18%"),
-             _col("last_active", "Last Active", width="20%")],
-            rows))
+            [_col("group", "Group", width="44%"),
+             _col("creator", "Creator", width="30%"),
+             _col("members", "Mbrs", align="right", width="10%"),
+             _col("days", "Idle", dtype="options", width="16%")],
+            rows, compact=True))
     else:
         elements.append(_note(f"None — every group was active in the last "
                               f"{quiet_floor} days 🎉"))
@@ -421,10 +428,9 @@ def help_card() -> str:
             _div("\n".join(f"- **{cmd}** : {desc}" for cmd, desc in commands)),
             _hr(),
             _div("**Automatic**\n"
-                 f"· 📋  Daily report at {settings.DAILY_REPORT_HOUR}:00 & "
-                 f"{settings.DAILY_REPORT_HOUR_PM}:00 (GMT+7)\n"
-                 f"· 📊  Weekly report on Friday at {settings.DAILY_REPORT_HOUR_PM}:00 "
-                 "(GMT+7) — replaces that afternoon's daily report\n"
+                 f"· 📋  Daily report at {settings.DAILY_REPORT_HOUR}:00 (GMT+7)\n"
+                 f"· 📊  Weekly report on Friday at {settings.DAILY_REPORT_HOUR}:00 "
+                 "(GMT+7) — replaces that day's daily report\n"
                  f"· ⚠️  Alert when a group is quiet for over "
                  f"{settings.INACTIVITY_THRESHOLD_DAYS} days"),
             _note("Nothing to authorize — it just works."),

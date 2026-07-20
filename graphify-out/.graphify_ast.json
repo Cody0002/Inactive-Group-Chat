@@ -1,0 +1,6888 @@
+{
+  "nodes": [
+    {
+      "id": "checker",
+      "label": "checker.py",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_state_for",
+      "label": "_state_for()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L49",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_parse",
+      "label": "_parse()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L57",
+      "_origin": "ast"
+    },
+    {
+      "id": "datetime",
+      "label": "datetime",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_refresh_in_progress",
+      "label": "refresh_in_progress()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L71",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_wait_for_refresh",
+      "label": "wait_for_refresh()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L75",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_refresh_data",
+      "label": "refresh_data()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L81",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_refresh_data_locked",
+      "label": "_refresh_data_locked()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L94",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_run_initial_backfill",
+      "label": "run_initial_backfill()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L178",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_sync_member_counts",
+      "label": "_sync_member_counts()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L195",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_member_event_count",
+      "label": "_member_event_count()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L239",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_run_hourly_refresh",
+      "label": "run_hourly_refresh()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L249",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_run_daily_check",
+      "label": "run_daily_check()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L254",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_days",
+      "label": "_days()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L262",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_leak_risk",
+      "label": "_leak_risk()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L269",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_today_window",
+      "label": "_today_window()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L283",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_send_daily_digest",
+      "label": "_send_daily_digest()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L295",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_audit_activity_by_chat",
+      "label": "_audit_activity_by_chat()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L329",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_audit_activity_events",
+      "label": "_audit_activity_events()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L401",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_audit_event_time",
+      "label": "_audit_event_time()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L409",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_chat_ids_from_audit_item",
+      "label": "_chat_ids_from_audit_item()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L416",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_walk_strings",
+      "label": "_walk_strings()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L433",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_is_chat_id",
+      "label": "_is_chat_id()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L449",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_alert",
+      "label": "_alert()",
+      "file_type": "code",
+      "source_file": "checker.py",
+      "source_location": "L453",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_rationale_1",
+      "label": "Data refresh + daily digest — audit-log only.  No authorization, no per-admin to",
+      "file_type": "rationale",
+      "source_file": "checker.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_rationale_76",
+      "label": "Block until the currently running refresh (if any) finishes.",
+      "file_type": "rationale",
+      "source_file": "checker.py",
+      "source_location": "L76",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_rationale_84",
+      "label": "Pull audit data and bring the sheet fully up to date.      The single place that",
+      "file_type": "rationale",
+      "source_file": "checker.py",
+      "source_location": "L84",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_rationale_179",
+      "label": "First run: build the 30-day base (every group created in the window —     the au",
+      "file_type": "rationale",
+      "source_file": "checker.py",
+      "source_location": "L179",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_rationale_196",
+      "label": "Apply member add/remove audit events to member_count.      A watermark in the me",
+      "file_type": "rationale",
+      "source_file": "checker.py",
+      "source_location": "L196",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_rationale_240",
+      "label": "People covered by one add/remove event (drawer count, default 1).",
+      "file_type": "rationale",
+      "source_file": "checker.py",
+      "source_location": "L240",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_rationale_255",
+      "label": "Render the daily digest from the sheet. No API scans — the hourly     refresh ke",
+      "file_type": "rationale",
+      "source_file": "checker.py",
+      "source_location": "L255",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_rationale_270",
+      "label": "Higher = higher data-leak risk when abandoned: external members weigh     most,",
+      "file_type": "rationale",
+      "source_file": "checker.py",
+      "source_location": "L270",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_rationale_284",
+      "label": "Return (start, end, label) for 'today so far' in the configured local     timezo",
+      "file_type": "rationale",
+      "source_file": "checker.py",
+      "source_location": "L284",
+      "_origin": "ast"
+    },
+    {
+      "id": "checker_rationale_454",
+      "label": "Post the inactive alert to the central group — no @mention.",
+      "file_type": "rationale",
+      "source_file": "checker.py",
+      "source_location": "L454",
+      "_origin": "ast"
+    },
+    {
+      "id": "config",
+      "label": "config.py",
+      "file_type": "code",
+      "source_file": "config.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "config_settings",
+      "label": "Settings",
+      "file_type": "code",
+      "source_file": "config.py",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "basesettings",
+      "label": "BaseSettings",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "config_rationale_1",
+      "label": "Configuration loaded from .env",
+      "file_type": "rationale",
+      "source_file": "config.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "get_tenant_token",
+      "label": "get_tenant_token.py",
+      "file_type": "code",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "get_tenant_token_mask",
+      "label": "mask()",
+      "file_type": "code",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "get_tenant_token_env",
+      "label": "env()",
+      "file_type": "code",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "get_tenant_token_parse_args",
+      "label": "parse_args()",
+      "file_type": "code",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L24",
+      "_origin": "ast"
+    },
+    {
+      "id": "get_tenant_token_py_namespace",
+      "label": "Namespace",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "get_tenant_token_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L44",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_init",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "lark/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_api",
+      "label": "api.py",
+      "file_type": "code",
+      "source_file": "lark/api.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_api_get_tenant_access_token",
+      "label": "get_tenant_access_token()",
+      "file_type": "code",
+      "source_file": "lark/api.py",
+      "source_location": "L21",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_api_send_message",
+      "label": "send_message()",
+      "file_type": "code",
+      "source_file": "lark/api.py",
+      "source_location": "L41",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_api_reply_in_thread",
+      "label": "reply_in_thread()",
+      "file_type": "code",
+      "source_file": "lark/api.py",
+      "source_location": "L57",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_api_patch_message",
+      "label": "patch_message()",
+      "file_type": "code",
+      "source_file": "lark/api.py",
+      "source_location": "L69",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_api_get_user_info",
+      "label": "get_user_info()",
+      "file_type": "code",
+      "source_file": "lark/api.py",
+      "source_location": "L80",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_api_get_behavior_audit_logs",
+      "label": "get_behavior_audit_logs()",
+      "file_type": "code",
+      "source_file": "lark/api.py",
+      "source_location": "L93",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_api_rationale_1",
+      "label": "Lark Open Platform API calls for the QC bot.  Notification-only: the bot never j",
+      "file_type": "rationale",
+      "source_file": "lark/api.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_api_rationale_22",
+      "label": "Fetch (and cache) the bot's tenant access token.",
+      "file_type": "rationale",
+      "source_file": "lark/api.py",
+      "source_location": "L22",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_api_rationale_108",
+      "label": "Query the Lark admin behavior audit log.      See: https://open.larksuite.com/op",
+      "file_type": "rationale",
+      "source_file": "lark/api.py",
+      "source_location": "L108",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards",
+      "label": "cards.py",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_card",
+      "label": "_card()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L22",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_div",
+      "label": "_div()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L36",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_note",
+      "label": "_note()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L40",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_hr",
+      "label": "_hr()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L44",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_button",
+      "label": "_button()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L48",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_actions",
+      "label": "_actions()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L56",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_short_dt",
+      "label": "_short_dt()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L60",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_local_dt",
+      "label": "_local_dt()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L67",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_col",
+      "label": "_col()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L77",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_table",
+      "label": "_table()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L86",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_opt",
+      "label": "_opt()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L104",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_sheet_url",
+      "label": "_sheet_url()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L109",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_stat_tiles",
+      "label": "_stat_tiles()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L113",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_creator_md",
+      "label": "_creator_md()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L133",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_members",
+      "label": "_members()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L142",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_is_team",
+      "label": "_is_team()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L149",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_is_external",
+      "label": "_is_external()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L154",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_new_group_created_card",
+      "label": "new_group_created_card()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L161",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_daily_digest_card",
+      "label": "daily_digest_card()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L195",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_inactive_alert_card",
+      "label": "inactive_alert_card()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L260",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_weekly_summary_card",
+      "label": "weekly_summary_card()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L277",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_detail_card",
+      "label": "detail_card()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L391",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_help_card",
+      "label": "help_card()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L407",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_loading_card",
+      "label": "loading_card()",
+      "file_type": "code",
+      "source_file": "lark/cards.py",
+      "source_location": "L437",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_rationale_1",
+      "label": "Card UI builders — modern, clean, consistent Lark interactive cards.  Notificati",
+      "file_type": "rationale",
+      "source_file": "lark/cards.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_rationale_68",
+      "label": "Render a stored UTC ISO timestamp in the report's local timezone.",
+      "file_type": "rationale",
+      "source_file": "lark/cards.py",
+      "source_location": "L68",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_rationale_105",
+      "label": "A colored tag cell for an 'options' column.",
+      "file_type": "rationale",
+      "source_file": "lark/cards.py",
+      "source_location": "L105",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_rationale_114",
+      "label": "A row of stat tiles: [(value, label, font_color, dot_emoji), …] —     big colore",
+      "file_type": "rationale",
+      "source_file": "lark/cards.py",
+      "source_location": "L114",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_rationale_134",
+      "label": "Bold the display name before the first '|' (e.g. '**Danny** | OA | …').",
+      "file_type": "rationale",
+      "source_file": "lark/cards.py",
+      "source_location": "L134",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_rationale_197",
+      "label": "Two tables: new groups (no member counts — creation-time size is     misleading)",
+      "file_type": "rationale",
+      "source_file": "lark/cards.py",
+      "source_location": "L197",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_cards_rationale_278",
+      "label": "Two sections: A) groups created this week, B) groups quiet for more     than WEE",
+      "file_type": "rationale",
+      "source_file": "lark/cards.py",
+      "source_location": "L278",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook",
+      "label": "webhook.py",
+      "file_type": "code",
+      "source_file": "lark/webhook.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_is_duplicate",
+      "label": "_is_duplicate()",
+      "file_type": "code",
+      "source_file": "lark/webhook.py",
+      "source_location": "L32",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_run_handler",
+      "label": "_run_handler()",
+      "file_type": "code",
+      "source_file": "lark/webhook.py",
+      "source_location": "L45",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_lark_webhook",
+      "label": "lark_webhook()",
+      "file_type": "code",
+      "source_file": "lark/webhook.py",
+      "source_location": "L53",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_py_request",
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_handle_new_group",
+      "label": "_handle_new_group()",
+      "file_type": "code",
+      "source_file": "lark/webhook.py",
+      "source_location": "L87",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_handle_message",
+      "label": "_handle_message()",
+      "file_type": "code",
+      "source_file": "lark/webhook.py",
+      "source_location": "L119",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_await_fresh_data",
+      "label": "_await_fresh_data()",
+      "file_type": "code",
+      "source_file": "lark/webhook.py",
+      "source_location": "L147",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_cmd_daily",
+      "label": "_cmd_daily()",
+      "file_type": "code",
+      "source_file": "lark/webhook.py",
+      "source_location": "L161",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_cmd_week",
+      "label": "_cmd_week()",
+      "file_type": "code",
+      "source_file": "lark/webhook.py",
+      "source_location": "L175",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_cmd_detail",
+      "label": "_cmd_detail()",
+      "file_type": "code",
+      "source_file": "lark/webhook.py",
+      "source_location": "L187",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_rationale_1",
+      "label": "Webhook receiver — events + slash commands.  Notification-only bot. No authori",
+      "file_type": "rationale",
+      "source_file": "lark/webhook.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "lark_webhook_rationale_148",
+      "label": "If a data scan is running, tell the user and wait for it so their     report us",
+      "file_type": "rationale",
+      "source_file": "lark/webhook.py",
+      "source_location": "L148",
+      "_origin": "ast"
+    },
+    {
+      "id": "main",
+      "label": "main.py",
+      "file_type": "code",
+      "source_file": "main.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "main_log_task_failure",
+      "label": "_log_task_failure()",
+      "file_type": "code",
+      "source_file": "main.py",
+      "source_location": "L32",
+      "_origin": "ast"
+    },
+    {
+      "id": "task",
+      "label": "Task",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "main_lifespan",
+      "label": "lifespan()",
+      "file_type": "code",
+      "source_file": "main.py",
+      "source_location": "L38",
+      "_origin": "ast"
+    },
+    {
+      "id": "fastapi",
+      "label": "FastAPI",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "main_health",
+      "label": "health()",
+      "file_type": "code",
+      "source_file": "main.py",
+      "source_location": "L83",
+      "_origin": "ast"
+    },
+    {
+      "id": "main_rationale_1",
+      "label": "New Group Monitor Bot — entry point.  Optimized for small servers:   - single wo",
+      "file_type": "rationale",
+      "source_file": "main.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups",
+      "label": "newgroups.py",
+      "file_type": "code",
+      "source_file": "newgroups.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_drawer_map",
+      "label": "_drawer_map()",
+      "file_type": "code",
+      "source_file": "newgroups.py",
+      "source_location": "L34",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_im_fields",
+      "label": "_im_fields()",
+      "file_type": "code",
+      "source_file": "newgroups.py",
+      "source_location": "L45",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_creator_name",
+      "label": "_creator_name()",
+      "file_type": "code",
+      "source_file": "newgroups.py",
+      "source_location": "L57",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_chat_from_objects",
+      "label": "_chat_from_objects()",
+      "file_type": "code",
+      "source_file": "newgroups.py",
+      "source_location": "L63",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_parse_created_group",
+      "label": "parse_created_group()",
+      "file_type": "code",
+      "source_file": "newgroups.py",
+      "source_location": "L73",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_scan_new_groups",
+      "label": "scan_new_groups()",
+      "file_type": "code",
+      "source_file": "newgroups.py",
+      "source_location": "L106",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_rationale_1",
+      "label": "New-group detection from the admin audit log (`im_create_chat`).  This is the",
+      "file_type": "rationale",
+      "source_file": "newgroups.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_rationale_35",
+      "label": "Flatten common_drawers.common_draw_info_list to {info_key: info_val}.",
+      "file_type": "rationale",
+      "source_file": "newgroups.py",
+      "source_location": "L35",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_rationale_46",
+      "label": "Parse the nested JSON 'im' drawer into {key: value}.",
+      "file_type": "rationale",
+      "source_file": "newgroups.py",
+      "source_location": "L46",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_rationale_64",
+      "label": "Return (chat_id, group_name) from the objects[] entry of type chat.",
+      "file_type": "rationale",
+      "source_file": "newgroups.py",
+      "source_location": "L64",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_rationale_74",
+      "label": "Extract the recommended detail set from one im_create_chat audit item.",
+      "file_type": "rationale",
+      "source_file": "newgroups.py",
+      "source_location": "L74",
+      "_origin": "ast"
+    },
+    {
+      "id": "newgroups_rationale_107",
+      "label": "Detect newly created groups from the audit log, log them, and (optionally)",
+      "file_type": "rationale",
+      "source_file": "newgroups.py",
+      "source_location": "L107",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_py_request",
+      "label": "request.py",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_debug",
+      "label": "debug()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_parse_time",
+      "label": "_parse_time()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L26",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_fmt_ts",
+      "label": "_fmt_ts()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L44",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_mask",
+      "label": "_mask()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L48",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_parse_args",
+      "label": "parse_args()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L54",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_py_namespace",
+      "label": "Namespace",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_env",
+      "label": "_env()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L156",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_print_credential_debug",
+      "label": "_print_credential_debug()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L163",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_tenanttokenmanager",
+      "label": "TenantTokenManager",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L173",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_tenanttokenmanager_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L174",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_py_asyncclient",
+      "label": "AsyncClient",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_tenanttokenmanager_get",
+      "label": ".get()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L180",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_is_token_error",
+      "label": "_is_token_error()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L212",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_is_rate_limit",
+      "label": "_is_rate_limit()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L223",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_get_behavior_audit_logs",
+      "label": "_get_behavior_audit_logs()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L228",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_fetch_audit_logs",
+      "label": "_fetch_audit_logs()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L315",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "request.py",
+      "source_location": "L388",
+      "_origin": "ast"
+    },
+    {
+      "id": "request_rationale_27",
+      "label": "Accept epoch seconds or ISO date/datetime (2026-07-01 or 2026-07-01T09:00).",
+      "file_type": "rationale",
+      "source_file": "request.py",
+      "source_location": "L27",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_init",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "storage/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets",
+      "label": "sheets.py",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_cachedtab",
+      "label": "_CachedTab",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L49",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_cachedtab_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L52",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_cachedtab_records",
+      "label": ".records()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L58",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_cachedtab_invalidate",
+      "label": ".invalidate()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L65",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_cachedtab_find_row",
+      "label": ".find_row()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L68",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_cachedtab_append",
+      "label": ".append()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L77",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_cachedtab_append_many",
+      "label": ".append_many()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L80",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_cachedtab_update_row",
+      "label": ".update_row()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L89",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_cachedtab_update_cells",
+      "label": ".update_cells()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L95",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_cachedtab_update_rows_cells",
+      "label": ".update_rows_cells()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L99",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_cachedtab_patch_cache",
+      "label": "._patch_cache()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L114",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient",
+      "label": "SheetsClient",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L122",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_new",
+      "label": ".__new__()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L125",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L131",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_ensure",
+      "label": "._ensure()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L148",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_log_new_group",
+      "label": ".log_new_group()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L159",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_log_new_groups_bulk",
+      "label": ".log_new_groups_bulk()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L179",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_set_group_meta",
+      "label": ".set_group_meta()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L201",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_get_all_groups",
+      "label": ".get_all_groups()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L222",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_bulk_update_group_activity",
+      "label": ".bulk_update_group_activity()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L225",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_adjust_member_counts",
+      "label": ".adjust_member_counts()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L238",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_meta_get",
+      "label": ".meta_get()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L256",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_meta_set",
+      "label": ".meta_set()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L262",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_was_recently_alerted",
+      "label": ".was_recently_alerted()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L270",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_log_alert",
+      "label": ".log_alert()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L282",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_sheetsclient_prune_old_alerts",
+      "label": ".prune_old_alerts()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L288",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_get_sheets",
+      "label": "get_sheets()",
+      "file_type": "code",
+      "source_file": "storage/sheets.py",
+      "source_location": "L309",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_1",
+      "label": "Google Sheets storage — optimized for a small server.  Notification-only model",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_50",
+      "label": "Wraps a gspread worksheet with a short-lived read cache.",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L50",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_69",
+      "label": "Return 1-based row index for a matching record, or None.",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L69",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_81",
+      "label": "Append many rows in ONE API call.",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L81",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_96",
+      "label": "Update multiple cells in one row with a single API call.",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L96",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_100",
+      "label": "Update cells across MANY rows in ONE batch API call.",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L100",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_163",
+      "label": "Record a group. Returns False if it was already logged.          created_at de",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L163",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_180",
+      "label": "Record many groups in ONE append call (used by the audit scan /         base bu",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L180",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_203",
+      "label": "Fill in member_count / external for an existing group, but only for         fie",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L203",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_226",
+      "label": "Write activity fields for many groups in ONE batch call.         changes: chat_",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L226",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_239",
+      "label": "Apply member add/remove deltas (from audit events) to member_count         in O",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L239",
+      "_origin": "ast"
+    },
+    {
+      "id": "storage_sheets_rationale_289",
+      "label": "Delete alert_log rows older than keep_days to keep the sheet small.",
+      "file_type": "rationale",
+      "source_file": "storage/sheets.py",
+      "source_location": "L289",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_init",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "utils/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_http",
+      "label": "http.py",
+      "file_type": "code",
+      "source_file": "utils/http.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_http_get_http_client",
+      "label": "get_http_client()",
+      "file_type": "code",
+      "source_file": "utils/http.py",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_http_py_asyncclient",
+      "label": "AsyncClient",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_http_close_http_client",
+      "label": "close_http_client()",
+      "file_type": "code",
+      "source_file": "utils/http.py",
+      "source_location": "L24",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_http_request_with_retry",
+      "label": "request_with_retry()",
+      "file_type": "code",
+      "source_file": "utils/http.py",
+      "source_location": "L30",
+      "_origin": "ast"
+    },
+    {
+      "id": "response",
+      "label": "Response",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_http_rationale_1",
+      "label": "Resilient HTTP helper: retry on 429/5xx with exponential backoff.",
+      "file_type": "rationale",
+      "source_file": "utils/http.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_logger",
+      "label": "logger.py",
+      "file_type": "code",
+      "source_file": "utils/logger.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_logger_setup_root",
+      "label": "_setup_root()",
+      "file_type": "code",
+      "source_file": "utils/logger.py",
+      "source_location": "L19",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_logger_get_logger",
+      "label": "get_logger()",
+      "file_type": "code",
+      "source_file": "utils/logger.py",
+      "source_location": "L59",
+      "_origin": "ast"
+    },
+    {
+      "id": "logger",
+      "label": "Logger",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "utils_logger_rationale_1",
+      "label": "Logger with automatic 3-day rotation.  Writes to both stdout (for `docker logs`",
+      "file_type": "rationale",
+      "source_file": "utils/logger.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "weekly_summary",
+      "label": "weekly_summary.py",
+      "file_type": "code",
+      "source_file": "weekly_summary.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "weekly_summary_run_weekly_summary",
+      "label": "run_weekly_summary()",
+      "file_type": "code",
+      "source_file": "weekly_summary.py",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "weekly_summary_rationale_1",
+      "label": "Friday weekly summary — activity digest from the sheet (audit-driven data). Also",
+      "file_type": "rationale",
+      "source_file": "weekly_summary.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "weekly_summary_rationale_17",
+      "label": "Render the weekly summary from the sheet (data kept fresh by the hourly     scan",
+      "file_type": "rationale",
+      "source_file": "weekly_summary.py",
+      "source_location": "L17",
+      "_origin": "ast"
+    }
+  ],
+  "edges": [
+    {
+      "source": "checker",
+      "target": "asyncio",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "datetime",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "zoneinfo",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "config",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "lark",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "storage_sheets",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "utils_logger",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_state_for",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_parse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_parse",
+      "target": "datetime",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_parse",
+      "target": "datetime",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_refresh_in_progress",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_wait_for_refresh",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_refresh_data",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_refresh_data_locked",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_run_initial_backfill",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L178",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_sync_member_counts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_sync_member_counts",
+      "target": "datetime",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_member_event_count",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L239",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_run_hourly_refresh",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_run_daily_check",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L254",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_days",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L262",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_leak_risk",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L269",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_today_window",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L283",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_today_window",
+      "target": "datetime",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L283",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_today_window",
+      "target": "datetime",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L283",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_today_window",
+      "target": "datetime",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L283",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_send_daily_digest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L295",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_send_daily_digest",
+      "target": "datetime",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L295",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_audit_activity_by_chat",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L329",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_audit_activity_by_chat",
+      "target": "datetime",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L329",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_audit_activity_events",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L401",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_audit_event_time",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L409",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_chat_ids_from_audit_item",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L416",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_walk_strings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L433",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_is_chat_id",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L449",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "checker_alert",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L453",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_refresh_data",
+      "target": "checker_refresh_data_locked",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L90",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_refresh_data_locked",
+      "target": "checker_sync_member_counts",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_refresh_data_locked",
+      "target": "checker_audit_activity_by_chat",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L119",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_refresh_data_locked",
+      "target": "checker_parse",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_refresh_data_locked",
+      "target": "checker_state_for",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L147",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_refresh_data_locked",
+      "target": "checker_alert",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L167",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_run_initial_backfill",
+      "target": "checker_refresh_data",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L185",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_sync_member_counts",
+      "target": "checker_member_event_count",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_sync_member_counts",
+      "target": "checker_chat_ids_from_audit_item",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L224",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_run_hourly_refresh",
+      "target": "checker_refresh_data",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L251",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_run_daily_check",
+      "target": "checker_send_daily_digest",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L259",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_send_daily_digest",
+      "target": "checker_today_window",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L297",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_send_daily_digest",
+      "target": "checker_parse",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L301",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_send_daily_digest",
+      "target": "checker_days",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L309",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_send_daily_digest",
+      "target": "checker_leak_risk",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L312",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_audit_activity_by_chat",
+      "target": "checker_audit_activity_events",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L334",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_audit_activity_by_chat",
+      "target": "checker_audit_event_time",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L372",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_audit_activity_by_chat",
+      "target": "checker_chat_ids_from_audit_item",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L375",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_chat_ids_from_audit_item",
+      "target": "checker_is_chat_id",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L421",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_chat_ids_from_audit_item",
+      "target": "checker_walk_strings",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L428",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_rationale_1",
+      "target": "checker",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_rationale_76",
+      "target": "checker_wait_for_refresh",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L76",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_rationale_84",
+      "target": "checker_refresh_data",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_rationale_179",
+      "target": "checker_run_initial_backfill",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L179",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_rationale_196",
+      "target": "checker_sync_member_counts",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L196",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_rationale_240",
+      "target": "checker_member_event_count",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L240",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_rationale_255",
+      "target": "checker_run_daily_check",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L255",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_rationale_270",
+      "target": "checker_leak_risk",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L270",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_rationale_284",
+      "target": "checker_today_window",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L284",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_rationale_454",
+      "target": "checker_alert",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L454",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "config",
+      "target": "pydantic_settings",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "config",
+      "target": "config_settings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "config_settings",
+      "target": "basesettings",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "config_rationale_1",
+      "target": "config",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token",
+      "target": "os",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token",
+      "target": "httpx",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token",
+      "target": "dotenv",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token",
+      "target": "get_tenant_token_mask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token",
+      "target": "get_tenant_token_env",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token",
+      "target": "get_tenant_token_parse_args",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token_parse_args",
+      "target": "get_tenant_token_py_namespace",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token",
+      "target": "get_tenant_token_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token_main",
+      "target": "get_tenant_token_parse_args",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token_main",
+      "target": "get_tenant_token_env",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "get_tenant_token_main",
+      "target": "get_tenant_token_mask",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "get_tenant_token.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "time",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "config",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "utils_http",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "utils_logger",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "lark_api_get_tenant_access_token",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "lark_api_send_message",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "lark_api_reply_in_thread",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "lark_api_patch_message",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "lark_api_get_user_info",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "lark_api_get_behavior_audit_logs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_send_message",
+      "target": "lark_api_get_tenant_access_token",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_reply_in_thread",
+      "target": "lark_api_get_tenant_access_token",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_patch_message",
+      "target": "lark_api_get_tenant_access_token",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_get_user_info",
+      "target": "lark_api_get_tenant_access_token",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_get_behavior_audit_logs",
+      "target": "lark_api_get_tenant_access_token",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L139",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_rationale_1",
+      "target": "lark_api",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_rationale_22",
+      "target": "lark_api_get_tenant_access_token",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_rationale_108",
+      "target": "lark_api_get_behavior_audit_logs",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "datetime",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "zoneinfo",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "config",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_card",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_div",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_note",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_hr",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_button",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_actions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_short_dt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_local_dt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_col",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_table",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_opt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L104",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_sheet_url",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_stat_tiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_creator_md",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L133",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_members",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_is_team",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L149",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_is_external",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L154",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_new_group_created_card",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_daily_digest_card",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_inactive_alert_card",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L260",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_weekly_summary_card",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L277",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_detail_card",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L391",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_help_card",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L407",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards",
+      "target": "lark_cards_loading_card",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L437",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_is_team",
+      "target": "lark_cards_members",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L150",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_new_group_created_card",
+      "target": "lark_cards_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L180",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_new_group_created_card",
+      "target": "lark_cards_div",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_new_group_created_card",
+      "target": "lark_cards_note",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_note",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L201",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_div",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L204",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_is_external",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_creator_md",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L212",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_local_dt",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L213",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_table",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L215",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_col",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L216",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_hr",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_opt",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L239",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_actions",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L248",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_button",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L248",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_sheet_url",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_daily_digest_card",
+      "target": "lark_cards_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L250",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_inactive_alert_card",
+      "target": "lark_cards_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L261",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_inactive_alert_card",
+      "target": "lark_cards_div",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L265",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_inactive_alert_card",
+      "target": "lark_cards_note",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L268",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_is_external",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L303",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_note",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L315",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_div",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L317",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_stat_tiles",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L318",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_hr",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L323",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_members",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L334",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_creator_md",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L337",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_local_dt",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L339",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_table",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L341",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_col",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L342",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_opt",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L366",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_actions",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L379",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_button",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L379",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_sheet_url",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L380",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "lark_cards_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L381",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_detail_card",
+      "target": "lark_cards_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L392",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_detail_card",
+      "target": "lark_cards_div",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L396",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_detail_card",
+      "target": "lark_cards_actions",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L398",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_detail_card",
+      "target": "lark_cards_button",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L398",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_detail_card",
+      "target": "lark_cards_note",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L399",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_help_card",
+      "target": "lark_cards_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L414",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_help_card",
+      "target": "lark_cards_div",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L418",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_help_card",
+      "target": "lark_cards_hr",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L420",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_help_card",
+      "target": "lark_cards_note",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L429",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_loading_card",
+      "target": "lark_cards_div",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L440",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_rationale_1",
+      "target": "lark_cards",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_rationale_68",
+      "target": "lark_cards_local_dt",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_rationale_105",
+      "target": "lark_cards_opt",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_rationale_114",
+      "target": "lark_cards_stat_tiles",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_rationale_134",
+      "target": "lark_cards_creator_md",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_rationale_197",
+      "target": "lark_cards_daily_digest_card",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L197",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_rationale_278",
+      "target": "lark_cards_weekly_summary_card",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/cards.py",
+      "source_location": "L278",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "asyncio",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "time",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "fastapi",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "config",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "storage_sheets",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "utils_logger",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark_webhook_is_duplicate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark_webhook_run_handler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark_webhook_lark_webhook",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_lark_webhook",
+      "target": "lark_webhook_py_request",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark_webhook_handle_new_group",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark_webhook_handle_message",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L119",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark_webhook_await_fresh_data",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L147",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark_webhook_cmd_daily",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark_webhook_cmd_week",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L175",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark_webhook_cmd_detail",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L187",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_lark_webhook",
+      "target": "lark_webhook_is_duplicate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_lark_webhook",
+      "target": "lark_webhook_run_handler",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_lark_webhook",
+      "target": "lark_webhook_handle_new_group",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_lark_webhook",
+      "target": "lark_webhook_handle_message",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_handle_message",
+      "target": "lark_webhook_cmd_daily",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_handle_message",
+      "target": "lark_webhook_cmd_week",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L140",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_handle_message",
+      "target": "lark_webhook_cmd_detail",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_cmd_daily",
+      "target": "lark_webhook_await_fresh_data",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_cmd_week",
+      "target": "lark_webhook_await_fresh_data",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_rationale_1",
+      "target": "lark_webhook",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_rationale_148",
+      "target": "lark_webhook_await_fresh_data",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L148",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "asyncio",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "contextlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "fastapi",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "apscheduler_schedulers_asyncio",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "apscheduler_triggers_cron",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "apscheduler_triggers_interval",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "config",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "lark",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "checker",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "weekly_summary",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "storage_sheets",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "utils_http",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "utils_logger",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "main_log_task_failure",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main_log_task_failure",
+      "target": "task",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "main_lifespan",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main_lifespan",
+      "target": "fastapi",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "main_health",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "uvicorn",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L90",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main_lifespan",
+      "target": "main_log_task_failure",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "source_file": "main.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main_rationale_1",
+      "target": "main",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "datetime",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "config",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "lark",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "storage_sheets",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "utils_logger",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "newgroups_drawer_map",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "newgroups_im_fields",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "newgroups_creator_name",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "newgroups_chat_from_objects",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "newgroups_parse_created_group",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "newgroups_scan_new_groups",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_parse_created_group",
+      "target": "newgroups_chat_from_objects",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_parse_created_group",
+      "target": "newgroups_drawer_map",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L76",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_parse_created_group",
+      "target": "newgroups_im_fields",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_parse_created_group",
+      "target": "newgroups_creator_name",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_scan_new_groups",
+      "target": "newgroups_parse_created_group",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_rationale_1",
+      "target": "newgroups",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_rationale_35",
+      "target": "newgroups_drawer_map",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_rationale_46",
+      "target": "newgroups_im_fields",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_rationale_64",
+      "target": "newgroups_chat_from_objects",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_rationale_74",
+      "target": "newgroups_parse_created_group",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_rationale_107",
+      "target": "newgroups_scan_new_groups",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "asyncio",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "os",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "sys",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "datetime",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "time",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "httpx",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "dotenv",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_debug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_parse_time",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_fmt_ts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_mask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_parse_args",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_parse_args",
+      "target": "request_py_namespace",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_env",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L156",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_print_credential_debug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L163",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_tenanttokenmanager",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L173",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_tenanttokenmanager",
+      "target": "request_tenanttokenmanager_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_tenanttokenmanager_init",
+      "target": "request_py_asyncclient",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_tenanttokenmanager",
+      "target": "request_tenanttokenmanager_get",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L180",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_is_token_error",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L212",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_is_rate_limit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_get_behavior_audit_logs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L228",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_get_behavior_audit_logs",
+      "target": "request_py_asyncclient",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L228",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_get_behavior_audit_logs",
+      "target": "request_tenanttokenmanager",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L228",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_fetch_audit_logs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L315",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_fetch_audit_logs",
+      "target": "request_py_namespace",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L315",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_py_request",
+      "target": "request_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L388",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_parse_args",
+      "target": "request_parse_time",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "source_file": "request.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_print_credential_debug",
+      "target": "request_env",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_print_credential_debug",
+      "target": "request_debug",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_print_credential_debug",
+      "target": "request_mask",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L167",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_tenanttokenmanager_get",
+      "target": "request_debug",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L189",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_tenanttokenmanager_get",
+      "target": "request_env",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L192",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_is_token_error",
+      "target": "request_tenanttokenmanager_get",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L213",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_is_rate_limit",
+      "target": "request_tenanttokenmanager_get",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L224",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_get_behavior_audit_logs",
+      "target": "request_tenanttokenmanager_get",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L270",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_get_behavior_audit_logs",
+      "target": "request_debug",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L279",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_get_behavior_audit_logs",
+      "target": "request_is_rate_limit",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L291",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_get_behavior_audit_logs",
+      "target": "request_is_token_error",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L296",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_fetch_audit_logs",
+      "target": "request_py_asyncclient",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L321",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_fetch_audit_logs",
+      "target": "request_tenanttokenmanager",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L322",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_fetch_audit_logs",
+      "target": "request_debug",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L329",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_fetch_audit_logs",
+      "target": "request_get_behavior_audit_logs",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L330",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_fetch_audit_logs",
+      "target": "request_tenanttokenmanager_get",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L348",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_main",
+      "target": "request_parse_args",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L391",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_main",
+      "target": "request_debug",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L406",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_main",
+      "target": "request_print_credential_debug",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L410",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_main",
+      "target": "request_fetch_audit_logs",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L411",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_main",
+      "target": "request_fmt_ts",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L417",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "request_rationale_27",
+      "target": "request_parse_time",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "request.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets",
+      "target": "time",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets",
+      "target": "datetime",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets",
+      "target": "gspread",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets",
+      "target": "config",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets",
+      "target": "utils_logger",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets",
+      "target": "storage_sheets_cachedtab",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab",
+      "target": "storage_sheets_cachedtab_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab",
+      "target": "storage_sheets_cachedtab_records",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab",
+      "target": "storage_sheets_cachedtab_invalidate",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab",
+      "target": "storage_sheets_cachedtab_find_row",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab",
+      "target": "storage_sheets_cachedtab_append",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab",
+      "target": "storage_sheets_cachedtab_append_many",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab",
+      "target": "storage_sheets_cachedtab_update_row",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab",
+      "target": "storage_sheets_cachedtab_update_cells",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab",
+      "target": "storage_sheets_cachedtab_update_rows_cells",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab",
+      "target": "storage_sheets_cachedtab_patch_cache",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets",
+      "target": "storage_sheets_sheetsclient",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_new",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L131",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_ensure",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L148",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_log_new_group",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_log_new_groups_bulk",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L179",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_set_group_meta",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L201",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_get_all_groups",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L222",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_bulk_update_group_activity",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L225",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_adjust_member_counts",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L238",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_meta_get",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L256",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_meta_set",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L262",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_was_recently_alerted",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L270",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_log_alert",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L282",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient",
+      "target": "storage_sheets_sheetsclient_prune_old_alerts",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L288",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets",
+      "target": "storage_sheets_get_sheets",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L309",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_get_sheets",
+      "target": "storage_sheets_sheetsclient",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L309",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab_find_row",
+      "target": "storage_sheets_cachedtab_records",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab_append",
+      "target": "storage_sheets_cachedtab_append_many",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab_append_many",
+      "target": "storage_sheets_cachedtab_append",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab_update_row",
+      "target": "storage_sheets_cachedtab_patch_cache",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab_update_cells",
+      "target": "storage_sheets_cachedtab_update_rows_cells",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab_update_rows_cells",
+      "target": "storage_sheets_cachedtab_append",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_cachedtab_update_rows_cells",
+      "target": "storage_sheets_cachedtab_patch_cache",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_init",
+      "target": "storage_sheets_cachedtab",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L143",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_init",
+      "target": "storage_sheets_sheetsclient_ensure",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L143",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_log_new_group",
+      "target": "storage_sheets_cachedtab_find_row",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L169",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_log_new_group",
+      "target": "storage_sheets_cachedtab_append",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L172",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_log_new_groups_bulk",
+      "target": "storage_sheets_cachedtab_records",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L183",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_log_new_groups_bulk",
+      "target": "storage_sheets_cachedtab_append",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_log_new_groups_bulk",
+      "target": "storage_sheets_cachedtab_append_many",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L198",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_set_group_meta",
+      "target": "storage_sheets_cachedtab_find_row",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L206",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_set_group_meta",
+      "target": "storage_sheets_cachedtab_records",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L210",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_set_group_meta",
+      "target": "storage_sheets_cachedtab_update_cells",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L220",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_get_all_groups",
+      "target": "storage_sheets_cachedtab_records",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_bulk_update_group_activity",
+      "target": "storage_sheets_cachedtab_find_row",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L232",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_bulk_update_group_activity",
+      "target": "storage_sheets_cachedtab_update_rows_cells",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L236",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_adjust_member_counts",
+      "target": "storage_sheets_cachedtab_records",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L243",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_adjust_member_counts",
+      "target": "storage_sheets_cachedtab_update_rows_cells",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L252",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_meta_get",
+      "target": "storage_sheets_cachedtab_records",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L257",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_meta_set",
+      "target": "storage_sheets_cachedtab_find_row",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L263",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_meta_set",
+      "target": "storage_sheets_cachedtab_update_row",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L265",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_meta_set",
+      "target": "storage_sheets_cachedtab_append",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L267",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_was_recently_alerted",
+      "target": "storage_sheets_cachedtab_records",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L273",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_log_alert",
+      "target": "storage_sheets_cachedtab_append",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L283",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_prune_old_alerts",
+      "target": "storage_sheets_cachedtab_records",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L291",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_prune_old_alerts",
+      "target": "storage_sheets_cachedtab_append",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L296",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_sheetsclient_prune_old_alerts",
+      "target": "storage_sheets_cachedtab_invalidate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L305",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_get_sheets",
+      "target": "storage_sheets_sheetsclient",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L310",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_1",
+      "target": "storage_sheets",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_50",
+      "target": "storage_sheets_cachedtab",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_69",
+      "target": "storage_sheets_cachedtab_find_row",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_81",
+      "target": "storage_sheets_cachedtab_append_many",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_96",
+      "target": "storage_sheets_cachedtab_update_cells",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_100",
+      "target": "storage_sheets_cachedtab_update_rows_cells",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_163",
+      "target": "storage_sheets_sheetsclient_log_new_group",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L163",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_180",
+      "target": "storage_sheets_sheetsclient_log_new_groups_bulk",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L180",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_203",
+      "target": "storage_sheets_sheetsclient_set_group_meta",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L203",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_226",
+      "target": "storage_sheets_sheetsclient_bulk_update_group_activity",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L226",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_239",
+      "target": "storage_sheets_sheetsclient_adjust_member_counts",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L239",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets_rationale_289",
+      "target": "storage_sheets_sheetsclient_prune_old_alerts",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L289",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http",
+      "target": "asyncio",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http",
+      "target": "httpx",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http",
+      "target": "utils_logger",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http",
+      "target": "utils_http_get_http_client",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http_get_http_client",
+      "target": "utils_http_py_asyncclient",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http",
+      "target": "utils_http_close_http_client",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http",
+      "target": "utils_http_request_with_retry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http_request_with_retry",
+      "target": "response",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http_get_http_client",
+      "target": "utils_http_py_asyncclient",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http_request_with_retry",
+      "target": "utils_http_get_http_client",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http_rationale_1",
+      "target": "utils_http",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_logger",
+      "target": "logging",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/logger.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_logger",
+      "target": "sys",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/logger.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_logger",
+      "target": "os",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/logger.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_logger",
+      "target": "logging_handlers",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/logger.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_logger",
+      "target": "utils_logger_setup_root",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/logger.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_logger",
+      "target": "utils_logger_get_logger",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/logger.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_logger_get_logger",
+      "target": "logger",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/logger.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_logger_get_logger",
+      "target": "utils_logger_setup_root",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/logger.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_logger_rationale_1",
+      "target": "utils_logger",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/logger.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary",
+      "target": "config",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary",
+      "target": "lark",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary",
+      "target": "storage_sheets",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary",
+      "target": "utils_logger",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary",
+      "target": "weekly_summary_run_weekly_summary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary_rationale_1",
+      "target": "weekly_summary",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary_rationale_17",
+      "target": "weekly_summary_run_weekly_summary",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "storage_sheets_get_sheets",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "utils_logger_get_logger",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "newgroups_scan_new_groups",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L104",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "newgroups_drawer_map",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L241",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "utils_http_request_with_retry",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api",
+      "target": "utils_logger_get_logger",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "storage_sheets_get_sheets",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "utils_logger_get_logger",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "checker_refresh_in_progress",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L150",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "checker_wait_for_refresh",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L150",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "checker_run_daily_check",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L165",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "weekly_summary_run_weekly_summary",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L178",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "checker_run_daily_check",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "checker_run_hourly_refresh",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "checker_run_initial_backfill",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "weekly_summary_run_weekly_summary",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "storage_sheets_get_sheets",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "utils_http_close_http_client",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "utils_logger_get_logger",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "storage_sheets_get_sheets",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "utils_logger_get_logger",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "storage_sheets",
+      "target": "utils_logger_get_logger",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "storage/sheets.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "utils_http",
+      "target": "utils_logger_get_logger",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/http.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary",
+      "target": "storage_sheets_get_sheets",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary",
+      "target": "utils_logger_get_logger",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "lark_api",
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker",
+      "target": "lark_cards",
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark_api",
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook",
+      "target": "lark_cards",
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main",
+      "target": "lark_webhook",
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "lark_api",
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups",
+      "target": "lark_cards",
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary",
+      "target": "lark_api",
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary",
+      "target": "lark_cards",
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_refresh_data_locked",
+      "target": "storage_sheets_get_sheets",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_refresh_data_locked",
+      "target": "newgroups_scan_new_groups",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_run_initial_backfill",
+      "target": "storage_sheets_get_sheets",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_member_event_count",
+      "target": "newgroups_drawer_map",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L242",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_run_daily_check",
+      "target": "storage_sheets_get_sheets",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "checker.py",
+      "source_location": "L259",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_get_tenant_access_token",
+      "target": "utils_http_request_with_retry",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_send_message",
+      "target": "utils_http_request_with_retry",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_reply_in_thread",
+      "target": "utils_http_request_with_retry",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_patch_message",
+      "target": "utils_http_request_with_retry",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_get_user_info",
+      "target": "utils_http_request_with_retry",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_api_get_behavior_audit_logs",
+      "target": "utils_http_request_with_retry",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/api.py",
+      "source_location": "L140",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_handle_new_group",
+      "target": "storage_sheets_get_sheets",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_await_fresh_data",
+      "target": "checker_refresh_in_progress",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_await_fresh_data",
+      "target": "checker_wait_for_refresh",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_cmd_daily",
+      "target": "checker_run_daily_check",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_cmd_week",
+      "target": "weekly_summary_run_weekly_summary",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lark/webhook.py",
+      "source_location": "L179",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_scan_new_groups",
+      "target": "storage_sheets_get_sheets",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "newgroups.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary_run_weekly_summary",
+      "target": "storage_sheets_get_sheets",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "weekly_summary.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_cards_weekly_summary_card",
+      "target": "checker_days",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lark/cards.py",
+      "source_location": "L302",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main_lifespan",
+      "target": "storage_sheets_get_sheets",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "main.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main_lifespan",
+      "target": "checker_run_hourly_refresh",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "main.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main_lifespan",
+      "target": "checker_run_daily_check",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "main.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main_lifespan",
+      "target": "weekly_summary_run_weekly_summary",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "main.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main_lifespan",
+      "target": "checker_run_initial_backfill",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "main.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main_lifespan",
+      "target": "utils_http_close_http_client",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "main.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "main_health",
+      "target": "storage_sheets_get_sheets",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "main.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_sync_member_counts",
+      "target": "lark_api_get_behavior_audit_logs",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checker.py",
+      "source_location": "L215",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_send_daily_digest",
+      "target": "lark_api_send_message",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checker.py",
+      "source_location": "L319",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_send_daily_digest",
+      "target": "lark_cards_daily_digest_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checker.py",
+      "source_location": "L321",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_audit_activity_by_chat",
+      "target": "lark_api_get_behavior_audit_logs",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checker.py",
+      "source_location": "L356",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_alert",
+      "target": "lark_api_send_message",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checker.py",
+      "source_location": "L455",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "checker_alert",
+      "target": "lark_cards_inactive_alert_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checker.py",
+      "source_location": "L457",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_handle_new_group",
+      "target": "lark_api_get_user_info",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lark/webhook.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_handle_new_group",
+      "target": "lark_api_send_message",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lark/webhook.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_handle_new_group",
+      "target": "lark_cards_new_group_created_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lark/webhook.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_handle_message",
+      "target": "lark_api_reply_in_thread",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lark/webhook.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_handle_message",
+      "target": "lark_cards_help_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lark/webhook.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_await_fresh_data",
+      "target": "lark_api_reply_in_thread",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lark/webhook.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_await_fresh_data",
+      "target": "lark_cards_loading_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lark/webhook.py",
+      "source_location": "L154",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_cmd_daily",
+      "target": "lark_api_reply_in_thread",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lark/webhook.py",
+      "source_location": "L168",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_cmd_week",
+      "target": "lark_api_reply_in_thread",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lark/webhook.py",
+      "source_location": "L181",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_cmd_detail",
+      "target": "lark_api_reply_in_thread",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lark/webhook.py",
+      "source_location": "L190",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "lark_webhook_cmd_detail",
+      "target": "lark_cards_detail_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lark/webhook.py",
+      "source_location": "L190",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_scan_new_groups",
+      "target": "lark_api_get_behavior_audit_logs",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "newgroups.py",
+      "source_location": "L123",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_scan_new_groups",
+      "target": "lark_api_send_message",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "newgroups.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "newgroups_scan_new_groups",
+      "target": "lark_cards_new_group_created_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "newgroups.py",
+      "source_location": "L160",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary_run_weekly_summary",
+      "target": "lark_api_send_message",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "weekly_summary.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "weekly_summary_run_weekly_summary",
+      "target": "lark_cards_weekly_summary_card",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "weekly_summary.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

@@ -16,7 +16,7 @@ from __future__ import annotations
 import json
 from datetime import datetime, timedelta, timezone
 
-from config import settings, is_excluded_creator
+from config import settings
 from lark import api, cards
 from storage.sheets import get_sheets
 from utils.logger import get_logger
@@ -118,7 +118,6 @@ async def scan_new_groups(lookback_days: int, *, notify: bool = True) -> int:
     # bulk — per-row writes blow the Sheets API quota on a 30-day base build.
     page_token = None
     recs: dict[str, dict] = {}
-    skipped = 0
     while True:
         try:
             data = await api.get_behavior_audit_logs(
@@ -135,9 +134,6 @@ async def scan_new_groups(lookback_days: int, *, notify: bool = True) -> int:
                 continue
             rec = parse_created_group(item)
             if not rec or rec["chat_id"] == settings.CENTRAL_GROUP_CHAT_ID:
-                continue
-            if is_excluded_creator(rec["creator_name"]):
-                skipped += 1
                 continue
             recs.setdefault(rec["chat_id"], rec)
 
@@ -168,6 +164,5 @@ async def scan_new_groups(lookback_days: int, *, notify: bool = True) -> int:
                 ),
                 msg_type="interactive")
 
-    logger.info("New-group scan: %s seen, %s new, %s from excluded creators",
-                len(recs), len(added), skipped)
+    logger.info("New-group scan: %s seen, %s new", len(recs), len(added))
     return len(added)

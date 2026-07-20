@@ -11,9 +11,9 @@ You don't need to authorize anything. It just works.
 
 ## What it sends you
 
-### 📋 Daily report — every day at 12:00 and 17:00 (Bangkok time)
+### 📋 Daily report — every day at 17:00 (Bangkok time)
 
-No 17:00 report on Friday — the weekly report goes out then instead.
+No daily report on Friday — the weekly report goes out then instead.
 
 One message with up to **two short tables**:
 
@@ -30,7 +30,8 @@ a one-time alert to the central group. It won't repeat that alert for **7 days**
 
 ### 📊 Weekly report — every Friday, 17:00 (Bangkok time)
 
-A wider summary: how many groups are active, getting quiet, or inactive.
+A wider summary: how many groups are active, getting quiet, or inactive, plus
+the cleanup watch list of groups quiet for more than **60 days**.
 
 ---
 

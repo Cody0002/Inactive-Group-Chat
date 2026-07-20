@@ -1,0 +1,8 @@
+D:\Projects\KZG\Inactive-Group-Bot\DEPLOY.md
+D:\Projects\KZG\Inactive-Group-Bot\README.md
+D:\Projects\KZG\Inactive-Group-Bot\docker-compose.yml
+D:\Projects\KZG\Inactive-Group-Bot\docs\bot_message_plan.md
+D:\Projects\KZG\Inactive-Group-Bot\docs\bot_overview.md
+D:\Projects\KZG\Inactive-Group-Bot\docs\lark_messenger_audit_data_dictionary.md
+D:\Projects\KZG\Inactive-Group-Bot\environment.yml
+D:\Projects\KZG\Inactive-Group-Bot\requirements.txt

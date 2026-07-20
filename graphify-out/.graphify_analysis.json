@@ -1,0 +1,453 @@
+{
+  "communities": {
+    "0": [
+      "basesettings",
+      "checker_rationale_179",
+      "checker_rationale_255",
+      "checker_rationale_76",
+      "checker_refresh_in_progress",
+      "checker_run_daily_check",
+      "checker_run_initial_backfill",
+      "checker_wait_for_refresh",
+      "config",
+      "config_rationale_1",
+      "config_settings",
+      "fastapi",
+      "lark_api_reply_in_thread",
+      "lark_cards_loading_card",
+      "lark_webhook",
+      "lark_webhook_await_fresh_data",
+      "lark_webhook_cmd_daily",
+      "lark_webhook_cmd_detail",
+      "lark_webhook_cmd_week",
+      "lark_webhook_handle_message",
+      "lark_webhook_is_duplicate",
+      "lark_webhook_lark_webhook",
+      "lark_webhook_py_request",
+      "lark_webhook_rationale_1",
+      "lark_webhook_rationale_148",
+      "lark_webhook_run_handler",
+      "logger",
+      "main",
+      "main_health",
+      "main_lifespan",
+      "main_log_task_failure",
+      "main_rationale_1",
+      "storage_sheets",
+      "storage_sheets_get_sheets",
+      "storage_sheets_rationale_1",
+      "task",
+      "utils_http",
+      "utils_http_close_http_client",
+      "utils_http_rationale_1",
+      "utils_logger",
+      "utils_logger_get_logger",
+      "utils_logger_rationale_1",
+      "utils_logger_setup_root",
+      "weekly_summary",
+      "weekly_summary_rationale_1",
+      "weekly_summary_rationale_17",
+      "weekly_summary_run_weekly_summary"
+    ],
+    "1": [
+      "storage_sheets_cachedtab",
+      "storage_sheets_cachedtab_append",
+      "storage_sheets_cachedtab_append_many",
+      "storage_sheets_cachedtab_find_row",
+      "storage_sheets_cachedtab_init",
+      "storage_sheets_cachedtab_invalidate",
+      "storage_sheets_cachedtab_patch_cache",
+      "storage_sheets_cachedtab_records",
+      "storage_sheets_cachedtab_update_cells",
+      "storage_sheets_cachedtab_update_row",
+      "storage_sheets_cachedtab_update_rows_cells",
+      "storage_sheets_rationale_100",
+      "storage_sheets_rationale_163",
+      "storage_sheets_rationale_180",
+      "storage_sheets_rationale_203",
+      "storage_sheets_rationale_226",
+      "storage_sheets_rationale_239",
+      "storage_sheets_rationale_289",
+      "storage_sheets_rationale_50",
+      "storage_sheets_rationale_69",
+      "storage_sheets_rationale_81",
+      "storage_sheets_rationale_96",
+      "storage_sheets_sheetsclient",
+      "storage_sheets_sheetsclient_adjust_member_counts",
+      "storage_sheets_sheetsclient_bulk_update_group_activity",
+      "storage_sheets_sheetsclient_ensure",
+      "storage_sheets_sheetsclient_get_all_groups",
+      "storage_sheets_sheetsclient_init",
+      "storage_sheets_sheetsclient_log_alert",
+      "storage_sheets_sheetsclient_log_new_group",
+      "storage_sheets_sheetsclient_log_new_groups_bulk",
+      "storage_sheets_sheetsclient_meta_get",
+      "storage_sheets_sheetsclient_meta_set",
+      "storage_sheets_sheetsclient_new",
+      "storage_sheets_sheetsclient_prune_old_alerts",
+      "storage_sheets_sheetsclient_set_group_meta",
+      "storage_sheets_sheetsclient_was_recently_alerted"
+    ],
+    "2": [
+      "lark_cards",
+      "lark_cards_actions",
+      "lark_cards_button",
+      "lark_cards_card",
+      "lark_cards_col",
+      "lark_cards_creator_md",
+      "lark_cards_daily_digest_card",
+      "lark_cards_detail_card",
+      "lark_cards_div",
+      "lark_cards_help_card",
+      "lark_cards_hr",
+      "lark_cards_inactive_alert_card",
+      "lark_cards_is_external",
+      "lark_cards_is_team",
+      "lark_cards_local_dt",
+      "lark_cards_members",
+      "lark_cards_new_group_created_card",
+      "lark_cards_note",
+      "lark_cards_opt",
+      "lark_cards_rationale_1",
+      "lark_cards_rationale_105",
+      "lark_cards_rationale_114",
+      "lark_cards_rationale_134",
+      "lark_cards_rationale_197",
+      "lark_cards_rationale_278",
+      "lark_cards_rationale_68",
+      "lark_cards_sheet_url",
+      "lark_cards_short_dt",
+      "lark_cards_stat_tiles",
+      "lark_cards_table",
+      "lark_cards_weekly_summary_card"
+    ],
+    "3": [
+      "checker_alert",
+      "checker_ping_reauth",
+      "checker_rationale_454",
+      "docs_bot_message_plan_afternoon_digest",
+      "docs_bot_message_plan_bot_message_plan",
+      "docs_bot_message_plan_digest_rationale",
+      "docs_bot_message_plan_inactive_group_alert",
+      "docs_bot_message_plan_morning_digest",
+      "docs_bot_message_plan_new_group_coverage_gap",
+      "docs_bot_message_plan_notification_policy",
+      "docs_bot_message_plan_reauthorization_ping",
+      "docs_bot_message_plan_slash_command_replies",
+      "docs_bot_message_plan_weekly_summary",
+      "docs_bot_overview_central_group_commands",
+      "docs_bot_overview_daily_report",
+      "docs_bot_overview_google_sheet_details",
+      "docs_bot_overview_group_monitor_bot_quick_guide",
+      "docs_bot_overview_inactive_alert",
+      "docs_bot_overview_no_authorization_required",
+      "docs_bot_overview_weekly_report",
+      "lark_cards_new_group_gap_card",
+      "readme_central_group_notifications",
+      "readme_google_sheets_persistence",
+      "readme_new_group_monitor_bot",
+      "readme_notification_only_monitoring",
+      "readme_small_server_optimizations",
+      "requirements_apscheduler",
+      "requirements_httpx"
+    ],
+    "4": [
+      "checker",
+      "checker_audit_activity_by_chat",
+      "checker_audit_activity_events",
+      "checker_audit_event_time",
+      "checker_chat_ids_from_audit_item",
+      "checker_days",
+      "checker_is_chat_id",
+      "checker_leak_risk",
+      "checker_member_event_count",
+      "checker_parse",
+      "checker_rationale_1",
+      "checker_rationale_196",
+      "checker_rationale_240",
+      "checker_rationale_270",
+      "checker_rationale_284",
+      "checker_rationale_84",
+      "checker_refresh_data",
+      "checker_refresh_data_locked",
+      "checker_run_hourly_refresh",
+      "checker_send_daily_digest",
+      "checker_state_for",
+      "checker_sync_member_counts",
+      "checker_today_window",
+      "checker_walk_strings",
+      "datetime"
+    ],
+    "5": [
+      "deploy_caddy_https",
+      "deploy_deployment_guide",
+      "deploy_docker_deployment",
+      "deploy_google_oauth_server_token",
+      "deploy_lark_webhook_setup",
+      "deploy_systemd_deployment",
+      "docker_compose_bot_service",
+      "docker_compose_google_oauth_mounts",
+      "docker_compose_runtime_constraints",
+      "environment_conda_environment",
+      "environment_python_3_11",
+      "requirements_dependency_manifest",
+      "requirements_fastapi",
+      "requirements_google_auth",
+      "requirements_google_auth_oauthlib",
+      "requirements_gspread",
+      "requirements_pydantic_settings",
+      "requirements_python_dotenv",
+      "requirements_uvicorn"
+    ],
+    "6": [
+      "request_debug",
+      "request_env",
+      "request_fetch_audit_logs",
+      "request_fmt_ts",
+      "request_get_behavior_audit_logs",
+      "request_is_rate_limit",
+      "request_is_token_error",
+      "request_main",
+      "request_mask",
+      "request_parse_args",
+      "request_parse_time",
+      "request_print_credential_debug",
+      "request_py_asyncclient",
+      "request_py_namespace",
+      "request_py_request",
+      "request_rationale_27",
+      "request_tenanttokenmanager",
+      "request_tenanttokenmanager_get",
+      "request_tenanttokenmanager_init"
+    ],
+    "7": [
+      "docs_bot_message_plan_audit_activity_events",
+      "docs_bot_message_plan_combined_inactivity_logic",
+      "docs_bot_message_plan_passive_event_exclusion",
+      "docs_lark_messenger_audit_data_dictionary_activity_signal_classification",
+      "docs_lark_messenger_audit_data_dictionary_admin_audit_api",
+      "docs_lark_messenger_audit_data_dictionary_audit_log_secondary",
+      "docs_lark_messenger_audit_data_dictionary_audit_object_mapping",
+      "docs_lark_messenger_audit_data_dictionary_audit_top_level_schema",
+      "docs_lark_messenger_audit_data_dictionary_event_name_query_parameter",
+      "docs_lark_messenger_audit_data_dictionary_final_activity_timestamp",
+      "docs_lark_messenger_audit_data_dictionary_group_activity_fields",
+      "docs_lark_messenger_audit_data_dictionary_lark_messenger_audit_data_dictionary",
+      "docs_lark_messenger_audit_data_dictionary_message_history_primary",
+      "docs_lark_messenger_audit_data_dictionary_messenger_module_2",
+      "docs_lark_messenger_audit_data_dictionary_sample_distribution",
+      "docs_lark_messenger_audit_data_dictionary_weak_events_non_reset",
+      "readme_admin_audit_activity_tracking"
+    ],
+    "8": [
+      "lark_api",
+      "lark_api_get_behavior_audit_logs",
+      "lark_api_get_tenant_access_token",
+      "lark_api_get_user_info",
+      "lark_api_patch_message",
+      "lark_api_rationale_1",
+      "lark_api_rationale_108",
+      "lark_api_rationale_22",
+      "lark_api_send_message",
+      "lark_webhook_handle_new_group",
+      "response",
+      "utils_http_get_http_client",
+      "utils_http_py_asyncclient",
+      "utils_http_request_with_retry"
+    ],
+    "9": [
+      "newgroups",
+      "newgroups_chat_from_objects",
+      "newgroups_creator_name",
+      "newgroups_drawer_map",
+      "newgroups_im_fields",
+      "newgroups_parse_created_group",
+      "newgroups_rationale_1",
+      "newgroups_rationale_107",
+      "newgroups_rationale_35",
+      "newgroups_rationale_46",
+      "newgroups_rationale_64",
+      "newgroups_rationale_74",
+      "newgroups_scan_new_groups"
+    ],
+    "10": [
+      "get_tenant_token",
+      "get_tenant_token_env",
+      "get_tenant_token_main",
+      "get_tenant_token_mask",
+      "get_tenant_token_parse_args",
+      "get_tenant_token_py_namespace"
+    ],
+    "11": [
+      "lark_init"
+    ],
+    "12": [
+      "storage_init"
+    ],
+    "13": [
+      "utils_init"
+    ]
+  },
+  "cohesion": {
+    "0": 0.08880666049953746,
+    "1": 0.09759759759759759,
+    "2": 0.15913978494623657,
+    "3": 0.08994708994708994,
+    "4": 0.15333333333333332,
+    "5": 0.14035087719298245,
+    "6": 0.25146198830409355,
+    "7": 0.14705882352941177,
+    "8": 0.25274725274725274,
+    "9": 0.21794871794871795,
+    "10": 0.5333333333333333,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0
+  },
+  "gods": [
+    {
+      "id": "lark_cards_weekly_summary_card",
+      "label": "weekly_summary_card()",
+      "degree": 20
+    },
+    {
+      "id": "lark_cards_daily_digest_card",
+      "label": "daily_digest_card()",
+      "degree": 16
+    },
+    {
+      "id": "storage_sheets_sheetsclient",
+      "label": "SheetsClient",
+      "degree": 16
+    },
+    {
+      "id": "storage_sheets_get_sheets",
+      "label": "get_sheets()",
+      "degree": 15
+    },
+    {
+      "id": "storage_sheets_cachedtab",
+      "label": "_CachedTab",
+      "degree": 13
+    },
+    {
+      "id": "utils_logger_get_logger",
+      "label": "get_logger()",
+      "degree": 11
+    },
+    {
+      "id": "requirements_dependency_manifest",
+      "label": "Python Dependency Manifest",
+      "degree": 11
+    },
+    {
+      "id": "utils_http_request_with_retry",
+      "label": "request_with_retry()",
+      "degree": 10
+    },
+    {
+      "id": "weekly_summary_run_weekly_summary",
+      "label": "run_weekly_summary()",
+      "degree": 10
+    },
+    {
+      "id": "checker_refresh_data_locked",
+      "label": "_refresh_data_locked()",
+      "degree": 9
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Inactive Group Alert",
+      "target": "inactive_alert_card()",
+      "source_files": [
+        "docs/bot_message_plan.md",
+        "lark/cards.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (code ↔ doc); connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "Weekly Summary",
+      "target": "weekly_summary_card()",
+      "source_files": [
+        "docs/bot_message_plan.md",
+        "lark/cards.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (code ↔ doc); connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "New Group Coverage Gap",
+      "target": "_handle_new_group()",
+      "source_files": [
+        "docs/bot_message_plan.md",
+        "lark/webhook.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (code ↔ doc); connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "Weekly Summary",
+      "target": "run_weekly_summary()",
+      "source_files": [
+        "docs/bot_message_plan.md",
+        "weekly_summary.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (code ↔ doc); connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "Central Group Notifications",
+      "target": "New Group Coverage Gap",
+      "source_files": [
+        "README.md",
+        "docs/bot_message_plan.md"
+      ],
+      "confidence": "AMBIGUOUS",
+      "relation": "conceptually_related_to",
+      "why": "ambiguous connection - not explicitly stated in source; connects across different repos/directories; peripheral node `Central Group Notifications` unexpectedly reaches hub `New Group Coverage Gap`"
+    }
+  ],
+  "questions": [
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Notification-Only Monitoring` and `Admin Reauthorization Ping`?",
+      "why": "Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low."
+    },
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Admin Audit Activity Tracking` and `Combined Message and Audit Inactivity Logic`?",
+      "why": "Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low."
+    },
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Central Group Notifications` and `New Group Coverage Gap`?",
+      "why": "Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low."
+    },
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Slash Command Replies` and `Central Group Commands`?",
+      "why": "Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low."
+    },
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Admin Reauthorization Ping` and `No Authorization Required`?",
+      "why": "Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Weekly Summary` connect `Notification Policy` to `Scheduling and Configuration`, `Lark Card UI`?",
+      "why": "High betweenness centrality (0.237) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `run_weekly_summary()` connect `Scheduling and Configuration` to `Lark API and Webhooks`, `Lark Card UI`, `Notification Policy`?",
+      "why": "High betweenness centrality (0.152) - this node is a cross-community bridge."
+    }
+  ]
+}
