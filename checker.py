@@ -433,6 +433,12 @@ async def _audit_activity_by_chat(
     return latest_by_chat, latest_names
 
 
+def activity_event_names() -> list[str]:
+    """Every event name that can end up in last_activity_event_name — the
+    dropdown values for that column on the groups tab."""
+    return sorted(set(_audit_activity_events()) | set(MEMBER_EVENTS))
+
+
 def _audit_activity_events() -> list[str]:
     return [
         event.strip()

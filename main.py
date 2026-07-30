@@ -18,7 +18,8 @@ from apscheduler.triggers.interval import IntervalTrigger
 
 from config import settings
 from lark import webhook
-from checker import run_daily_check, run_hourly_refresh, run_initial_backfill
+from checker import (activity_event_names, run_daily_check, run_hourly_refresh,
+                    run_initial_backfill)
 from weekly_summary import run_weekly_summary
 from storage.sheets import get_sheets
 from utils.http import close_http_client
@@ -38,7 +39,13 @@ def _log_task_failure(task: asyncio.Task):
 async def lifespan(app: FastAPI):
     global scheduler, _startup_task
     logger.info("Starting New Group Monitor Bot…")
-    get_sheets()  # init + create tabs
+    sheets = get_sheets()  # init + create tabs
+    # Lay the groups tab's formatting back over every row — appended rows don't
+    # inherit the dropdown chips or wrapping. Never fatal: it's cosmetic.
+    try:
+        sheets.format_groups_tab(activity_event_names())
+    except Exception as e:
+        logger.warning(f"Groups tab formatting failed: {e}")
 
     scheduler = AsyncIOScheduler(timezone="UTC")
     # Hourly data scan keeps the sheet fresh; reports render from the sheet.

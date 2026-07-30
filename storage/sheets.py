@@ -45,6 +45,21 @@ ALERT_LOG_COLUMNS = [
 # Small key/value tab for bot state: base-build flag, member-sync watermark…
 META_COLUMNS = ["key", "value"]
 
+# ---- groups tab look & feel (see SheetsClient.format_groups_tab) ----
+EXTERNAL_VALUES = ["No", "Yes"]          # dropdown values for the external column
+CENTERED_COLUMNS = ["member_count", "external", "days_inactive", "state"]
+DEFAULT_ROW_HEIGHT = 21                  # Sheets' own default — keeps rows uniform
+DAYS_INACTIVE_RED = "#C5221F"
+DAYS_INACTIVE_AMBER = "#B06000"
+
+
+def _rgb(hex_color: str) -> dict[str, float]:
+    """"#RRGGBB" -> the Sheets API's 0..1 colour dict."""
+    h = hex_color.lstrip("#")
+    return {"red": int(h[0:2], 16) / 255,
+            "green": int(h[2:4], 16) / 255,
+            "blue": int(h[4:6], 16) / 255}
+
 
 class _CachedTab:
     """Wraps a gspread worksheet with a short-lived read cache."""
@@ -143,6 +158,9 @@ class SheetsClient:
         self.groups = _CachedTab(self._ensure("groups", GROUPS_COLUMNS), GROUPS_COLUMNS)
         self.alerts = _CachedTab(self._ensure("alert_log", ALERT_LOG_COLUMNS), ALERT_LOG_COLUMNS)
         self.meta = _CachedTab(self._ensure("meta", META_COLUMNS), META_COLUMNS)
+        # Set by format_groups_tab(); until then we don't know the dropdown
+        # values, so appended rows can't be given their chips yet.
+        self._event_names: Optional[list[str]] = None
         self._init = True
 
     def _ensure(self, name: str, headers: list[str]):
@@ -154,6 +172,143 @@ class SheetsClient:
             ws = self.ss.add_worksheet(title=name, rows=2000, cols=len(headers))
             ws.update("A1", [headers])
         return ws
+
+    # ---------- groups tab formatting ----------
+    def format_groups_tab(self, event_names: list[str]) -> None:
+        """(Re)apply the groups tab's look & feel. Idempotent — runs at startup.
+
+        Rows appended through the API inherit neither data validation nor the
+        wrap/alignment of the rows above them, which is how the tab ended up
+        with dropdown chips on some rows and plain text on others. This lays
+        the formatting back over the whole data range; _refresh_chips() then
+        keeps newly appended rows in line between restarts.
+        """
+        self._event_names = list(event_names)
+        rows = len(self.groups.records())
+        end = rows + 1        # exclusive row index; +1 skips the header
+        all_rows = self.groups.ws.row_count
+
+        # Chips stop at the last data row — validating the empty rows below
+        # would litter the rest of the tab with blank dropdowns. Everything
+        # else covers the whole sheet, so the empty area matches the table and
+        # future rows are already formatted.
+        requests = self._chip_requests(end)
+        requests += [
+            # group_name was the only WRAP column, so one long name made its
+            # row taller than every other. CLIP keeps all rows one line high.
+            {"repeatCell": {
+                "range": self._col_range("group_name", 1, all_rows),
+                "cell": {"userEnteredFormat": {"wrapStrategy": "CLIP"}},
+                "fields": "userEnteredFormat.wrapStrategy"}},
+            # Row 1 keeps its taller header height — start at row 2.
+            {"updateDimensionProperties": {
+                "range": {"sheetId": self.groups.ws.id, "dimension": "ROWS",
+                          "startIndex": 1, "endIndex": all_rows},
+                "properties": {"pixelSize": DEFAULT_ROW_HEIGHT},
+                "fields": "pixelSize"}},
+        ]
+        # Short status columns read better centred, and it lines the chips up
+        # under their headers (row 0 = header, so it moves too).
+        requests += [
+            {"repeatCell": {
+                "range": self._col_range(name, 0, all_rows),
+                "cell": {"userEnteredFormat": {"horizontalAlignment": "CENTER"}},
+                "fields": "userEnteredFormat.horizontalAlignment"}}
+            for name in CENTERED_COLUMNS
+        ]
+        requests += self._days_inactive_cf_requests()
+
+        self.ss.batch_update({"requests": requests})
+        logger.info("groups tab formatted — %s data row(s), %s request(s)",
+                    rows, len(requests))
+
+    def _col_range(self, col_name: str, start_row: int, end_row: int) -> dict:
+        """A single-column GridRange (0-based, end-exclusive)."""
+        i = GROUPS_COLUMNS.index(col_name)
+        return {"sheetId": self.groups.ws.id,
+                "startRowIndex": start_row,
+                "endRowIndex": max(end_row, start_row + 1),
+                "startColumnIndex": i, "endColumnIndex": i + 1}
+
+    def _chip_requests(self, end_row: int) -> list[dict]:
+        """Dropdown ("chip") validation for the two enum columns.
+
+        Only the rows that hold data get it — validating the empty rows below
+        would litter the rest of the tab with blank dropdowns.
+        """
+        lists = {
+            "external": EXTERNAL_VALUES,
+            # "" keeps blank cells valid: a group with no audit event yet.
+            "last_activity_event_name": [""] + sorted(self._event_names or []),
+        }
+        return [
+            {"setDataValidation": {
+                "range": self._col_range(name, 1, end_row),
+                "rule": {
+                    "condition": {"type": "ONE_OF_LIST",
+                                  "values": [{"userEnteredValue": v} for v in values]},
+                    "strict": True, "showCustomUi": True}}}
+            for name, values in lists.items()
+        ]
+
+    def _refresh_chips(self) -> None:
+        """Extend the dropdown chips over rows appended since the last format."""
+        if self._event_names is None:
+            return  # format_groups_tab() hasn't run — nothing to extend yet
+        try:
+            self.ss.batch_update({
+                "requests": self._chip_requests(len(self.groups.records()) + 1)})
+        except Exception as e:
+            logger.warning(f"Could not extend dropdown chips to new rows: {e}")
+
+    def _days_inactive_cf_requests(self) -> list[dict]:
+        """Colour days_inactive at / approaching the inactivity threshold.
+
+        Added only when the exact rule isn't on the tab already, so restarts
+        never pile up duplicates and hand-made rules are left alone. The two
+        conditions are mutually exclusive, so rule order doesn't matter.
+        VALUE() because the column holds text (everything is written RAW).
+        """
+        letter = chr(ord("A") + GROUPS_COLUMNS.index("days_inactive"))
+        cell = f"${letter}2"
+        threshold = settings.INACTIVITY_THRESHOLD_DAYS
+        near = max(threshold - settings.NEAR_INACTIVE_DAYS, 1)
+        wanted = [
+            (f'=AND({cell}<>"",VALUE({cell})>={threshold})', DAYS_INACTIVE_RED),
+            (f'=AND({cell}<>"",VALUE({cell})>={near},VALUE({cell})<{threshold})',
+             DAYS_INACTIVE_AMBER),
+        ]
+        existing = self._custom_formula_rules()
+        # Full-height range (like the state rules) so it never needs widening.
+        full = self._col_range("days_inactive", 1, self.groups.ws.row_count)
+        return [
+            {"addConditionalFormatRule": {
+                "index": 0,
+                "rule": {
+                    "ranges": [full],
+                    "booleanRule": {
+                        "condition": {"type": "CUSTOM_FORMULA",
+                                      "values": [{"userEnteredValue": formula}]},
+                        "format": {"textFormat": {
+                            "bold": True,
+                            "foregroundColorStyle": {"rgbColor": _rgb(color)}}}}}}}
+            for formula, color in wanted if formula not in existing
+        ]
+
+    def _custom_formula_rules(self) -> set[str]:
+        """CUSTOM_FORMULA conditions already on the groups tab."""
+        meta = self.ss.fetch_sheet_metadata(params={
+            "fields": "sheets(properties(sheetId),conditionalFormats)"})
+        formulas = set()
+        for sh in meta.get("sheets", []):
+            if sh.get("properties", {}).get("sheetId") != self.groups.ws.id:
+                continue
+            for rule in sh.get("conditionalFormats", []):
+                cond = rule.get("booleanRule", {}).get("condition", {})
+                if cond.get("type") == "CUSTOM_FORMULA":
+                    for v in cond.get("values", []):
+                        formulas.add(v.get("userEnteredValue", ""))
+        return formulas
 
     # ---------- groups ----------
     def log_new_group(self, chat_id: str, group_name: str,
@@ -174,6 +329,7 @@ class SheetsClient:
             created, member_count, external,
             created, "", "active", "", "created_at_fallback", "",
         ])
+        self._refresh_chips()
         return True
 
     def log_new_groups_bulk(self, recs: list[dict]) -> list[str]:
@@ -196,6 +352,8 @@ class SheetsClient:
             ])
             added.append(chat_id)
         self.groups.append_many(rows)
+        if rows:
+            self._refresh_chips()
         return added
 
     def set_group_meta(self, chat_id: str, member_count: str = "",
