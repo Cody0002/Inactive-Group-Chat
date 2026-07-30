@@ -225,7 +225,9 @@ class SheetsClient:
     def bulk_update_group_activity(self, changes: dict[str, dict[str, str]]):
         """Write activity fields for many groups in ONE batch call.
         changes: chat_id -> {last_activity_at, days_inactive, state,
-                             last_activity_source, last_activity_event_name}"""
+                             last_activity_source, last_activity_event_name}
+        May also carry group_name when a group was renamed in Lark. An empty
+        field dict still stamps last_checked_at."""
         now_iso = datetime.now(timezone.utc).isoformat()
         per_row: dict[int, dict[str, str]] = {}
         for chat_id, fields in changes.items():

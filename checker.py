@@ -17,6 +17,9 @@ Activity for a group is the newest of:
   - the activity already stored in the sheet (last_activity_at)
   - any qualifying audit event mapped to the group's chat_id
   - the group's created_at (fallback)
+
+Group names are refreshed the same way: every audit item names the chats it
+touches, so the name from the newest event wins and renames land in the sheet.
 """
 import asyncio
 from datetime import datetime, timedelta, timezone
@@ -106,9 +109,15 @@ async def _refresh_data_locked(activity_lookback_days: int | None,
     except Exception as e:
         logger.warning(f"New-group scan failed: {e}")
 
+    # Newest group name per chat_id, gathered from every audit item we read
+    # below — a group renamed in Lark gets its sheet row corrected.
+    latest_names: dict[str, tuple[int, str]] = {}
+
     # Keep member_count close to reality (adds/joins/removals/quits).
     try:
-        await _sync_member_counts(sheets, datetime.now(timezone.utc))
+        _merge_chat_names(
+            latest_names,
+            await _sync_member_counts(sheets, datetime.now(timezone.utc)))
     except Exception as e:
         logger.warning(f"Member-count sync failed: {e}")
 
@@ -116,8 +125,11 @@ async def _refresh_data_locked(activity_lookback_days: int | None,
     logger.info(f"Refreshing {len(groups)} group(s)")
 
     now = datetime.now(timezone.utc)
-    audit_activity = await _audit_activity_by_chat(now, activity_lookback_days)
+    audit_activity, activity_names = await _audit_activity_by_chat(
+        now, activity_lookback_days)
+    _merge_chat_names(latest_names, activity_names)
     alerts = 0
+    renames = 0
     changes: dict[str, dict[str, str]] = {}
 
     for group in groups:
@@ -149,18 +161,29 @@ async def _refresh_data_locked(activity_lookback_days: int | None,
         # Every group gets last_checked_at stamped; rows whose data actually
         # changed get the full field set. All of it goes out in ONE batch
         # call, so this stays inside the Sheets write quota.
+        fields: dict[str, str] = {}
         if (group.get("last_activity_at") != last_dt.isoformat()
                 or str(group.get("days_inactive")) != str(days)
                 or group.get("state") != state):
-            changes[chat_id] = {
+            fields.update({
                 "last_activity_at": last_dt.isoformat(),
                 "days_inactive": str(days),
                 "state": state,
                 "last_activity_source": activity_source,
                 "last_activity_event_name": activity_event,
-            }
-        else:
-            changes[chat_id] = {}  # timestamp-only: bulk write adds last_checked_at
+            })
+
+        # Renamed in Lark since we last saw it? Adopt the newer name so cards
+        # and reports never show a stale one.
+        old_name = group.get("group_name", "")
+        new_name = _latest_name(old_name, latest_names.get(chat_id))
+        if new_name:
+            fields["group_name"] = new_name
+            group["group_name"] = new_name  # alerts below use the current name
+            renames += 1
+            logger.info("Group renamed: %r → %r (%s)", old_name, new_name, chat_id)
+
+        changes[chat_id] = fields  # empty = timestamp-only last_checked_at write
 
         if state == "inactive" and not sheets.was_recently_alerted(
                 chat_id, "inactive", settings.REALERT_COOLDOWN_DAYS):
@@ -172,7 +195,8 @@ async def _refresh_data_locked(activity_lookback_days: int | None,
         sheets.bulk_update_group_activity(changes)
     data_changed = sum(1 for f in changes.values() if f)
     logger.info(f"Refresh done — {len(changes)} row(s) checked, "
-                f"{data_changed} with data changes, {alerts} alert(s)")
+                f"{data_changed} with data changes, {renames} rename(s), "
+                f"{alerts} alert(s)")
 
 
 async def run_initial_backfill():
@@ -192,12 +216,15 @@ async def run_initial_backfill():
     logger.info("=== Base build complete ===")
 
 
-async def _sync_member_counts(sheets, now: datetime):
+async def _sync_member_counts(sheets, now: datetime) -> dict[str, tuple[int, str]]:
     """Apply member add/remove audit events to member_count.
 
     A watermark in the meta tab marks how far we've already processed, so
     overlapping hourly scan windows never double-count. First run covers the
-    full 30-day base window."""
+    full 30-day base window.
+
+    Returns the group names seen while scanning, so the caller can pick up
+    renames from these events too."""
     watermark = sheets.meta_get("member_watermark")
     if watermark:
         oldest = int(float(watermark)) + 1
@@ -205,9 +232,10 @@ async def _sync_member_counts(sheets, now: datetime):
         oldest = int((now - timedelta(days=BASE_BACKFILL_DAYS)).timestamp())
     latest = int(now.timestamp())
     if latest <= oldest:
-        return
+        return {}
 
     deltas: dict[str, int] = {}
+    names: dict[str, tuple[int, str]] = {}
     for event_name, sign in MEMBER_EVENTS.items():
         page_token = None
         while True:
@@ -221,6 +249,7 @@ async def _sync_member_counts(sheets, now: datetime):
                 break
             for item in data.get("items", []):
                 count = _member_event_count(item)
+                _track_chat_names(names, item, _audit_event_time(item) or 0)
                 for chat_id in _chat_ids_from_audit_item(item):
                     deltas[chat_id] = deltas.get(chat_id, 0) + sign * count
             if not data.get("has_more"):
@@ -234,6 +263,7 @@ async def _sync_member_counts(sheets, now: datetime):
     if deltas:
         logger.info(f"Member sync: {len(deltas)} chat(s) with changes, "
                     f"{changed} tracked row(s) updated")
+    return names
 
 
 def _member_event_count(item: dict) -> int:
@@ -326,14 +356,17 @@ async def _send_daily_digest(sheets, now: datetime) -> bool:
     return True
 
 
-async def _audit_activity_by_chat(now: datetime,
-                                  lookback_days: int | None = None) -> dict[str, dict]:
+async def _audit_activity_by_chat(
+        now: datetime,
+        lookback_days: int | None = None,
+) -> tuple[dict[str, dict], dict[str, tuple[int, str]]]:
+    """Return (activity per chat_id, newest (event_time, group_name) per chat_id)."""
     if not settings.AUDIT_ACTIVITY_ENABLED:
-        return {}
+        return {}, {}
 
     events = _audit_activity_events()
     if not events:
-        return {}
+        return {}, {}
 
     if lookback_days is None:
         lookback_days = settings.AUDIT_ACTIVITY_LOOKBACK_DAYS
@@ -341,6 +374,7 @@ async def _audit_activity_by_chat(now: datetime,
     oldest = int((now - timedelta(days=lookback_days)).timestamp())
     latest = int(now.timestamp())
     latest_by_chat: dict[str, dict] = {}
+    latest_names: dict[str, tuple[int, str]] = {}
 
     logger.info(
         "Loading audit activity for %s event(s), lookback=%sd",
@@ -372,6 +406,7 @@ async def _audit_activity_by_chat(now: datetime,
                 event_time = _audit_event_time(item)
                 if not event_time:
                     continue
+                _track_chat_names(latest_names, item, event_time)
                 for chat_id in _chat_ids_from_audit_item(item):
                     current = latest_by_chat.get(chat_id)
                     if not current or event_time > current["event_time"]:
@@ -395,7 +430,7 @@ async def _audit_activity_by_chat(now: datetime,
         )
 
     logger.info("Audit activity mapped to %s chat(s)", len(latest_by_chat))
-    return latest_by_chat
+    return latest_by_chat, latest_names
 
 
 def _audit_activity_events() -> list[str]:
@@ -413,13 +448,19 @@ def _audit_event_time(item: dict) -> int | None:
         return None
 
 
-def _chat_ids_from_audit_item(item: dict) -> set[str]:
-    chat_ids = set()
+def _chat_names_from_audit_item(item: dict) -> dict[str, str]:
+    """{chat_id: group_name} for the chats named in one audit item's objects[]."""
+    names: dict[str, str] = {}
     for obj in item.get("objects", []) or []:
         if str(obj.get("object_type", "")) == CHAT_OBJECT_TYPE:
             value = obj.get("object_value")
             if _is_chat_id(value):
-                chat_ids.add(value)
+                names[value] = str(obj.get("object_name") or "").strip()
+    return names
+
+
+def _chat_ids_from_audit_item(item: dict) -> set[str]:
+    chat_ids = set(_chat_names_from_audit_item(item))
     if chat_ids:
         return chat_ids
 
@@ -428,6 +469,46 @@ def _chat_ids_from_audit_item(item: dict) -> set[str]:
         for value in _walk_strings(item)
         if _is_chat_id(value)
     }
+
+
+def _track_chat_names(dest: dict[str, tuple[int, str]], item: dict,
+                      event_time: int):
+    """Keep the name seen at the NEWEST event per chat, so a rename overrides
+    whatever older events (and the creation record) called the group."""
+    for chat_id, name in _chat_names_from_audit_item(item).items():
+        if not name:
+            continue
+        current = dest.get(chat_id)
+        if not current or event_time > current[0]:
+            dest[chat_id] = (event_time, name)
+
+
+def _merge_chat_names(dest: dict[str, tuple[int, str]],
+                      src: dict[str, tuple[int, str]]):
+    """Fold one name map into another, newest event_time winning."""
+    for chat_id, seen in src.items():
+        current = dest.get(chat_id)
+        if not current or seen[0] > current[0]:
+            dest[chat_id] = seen
+
+
+def _latest_name(current: str, seen: tuple[int, str] | None) -> str:
+    """The group's newest audit name, or "" if the sheet is already right.
+
+    The audit log truncates long names (~60 chars + "..."), so a truncated
+    prefix of what we already store is not a rename — ignore it rather than
+    writing the shortened form over the full one.
+    """
+    if not seen:
+        return ""
+    name = seen[1].strip()
+    current = (current or "").strip()
+    if not name or name == current:
+        return ""
+    for suffix in ("...", "…"):
+        if name.endswith(suffix) and current.startswith(name[:-len(suffix)]):
+            return ""
+    return name
 
 
 def _walk_strings(value) -> list[str]:
