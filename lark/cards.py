@@ -146,6 +146,31 @@ def _creator_short(name: str) -> str:
     return display_name or "unknown"
 
 
+def _owner_cell(group: dict) -> str:
+    """Who to talk to about a group — the owner as the sheet knows them.
+
+    creator             the creator's display name
+    transferred/named   the new owner's name, or the creator + 🔁 while the new
+                        owner is still only a user_id
+    left                name + 🚪 — the owner (or, before the owner columns
+                        existed, the creator) left the company
+    """
+    status = str(group.get("owner_status", "")).strip().lower()
+    creator = _creator_short(group.get("creator_name"))
+    owner = (_creator_short(group.get("owner_name"))
+             if str(group.get("owner_name", "")).strip() else "")
+    moved = (status in ("transferred", "named", "unknown")
+             or bool(str(group.get("owner_transferred_at", "")).strip()))
+    left = (status == "left"
+            or (status in ("", "creator")
+                and bool(str(group.get("creator_left_at", "")).strip())))
+    if left:
+        return f"{owner or creator} 🚪"
+    if moved:
+        return owner if owner and status in ("transferred", "named") else f"{creator} 🔁"
+    return creator
+
+
 def _members(group: dict) -> int | None:
     try:
         return int(group.get("member_count") or 0) or None
@@ -282,8 +307,8 @@ def inactive_alert_card(group_name: str, days: int, last_active: str) -> str:
 # Weekly summary — activity digest
 # ----------------------------------------------------------------
 def weekly_summary_card(groups: list, threshold: int, personal_max: int = 3) -> str:
-    """Two sections: A) groups created this week, B) groups quiet for more
-    than WEEKLY_INACTIVE_DAYS. Member counts here are ACTUAL (kept current
+    """Two sections: A) groups created this week, B) groups quiet for at
+    least WEEKLY_INACTIVE_DAYS. Member counts here are ACTUAL (kept current
     from add/join/remove/quit audit events)."""
     now = datetime.now(timezone.utc)
 
@@ -306,7 +331,7 @@ def weekly_summary_card(groups: list, threshold: int, personal_max: int = 3) -> 
     created_week.sort(key=lambda g: g.get("created_at", ""), reverse=True)
 
     quiet_floor = settings.WEEKLY_INACTIVE_DAYS
-    inactive = [g for g in groups if _days(g) > quiet_floor]
+    inactive = [g for g in groups if _days(g) >= quiet_floor]
     inactive.sort(key=lambda g: (_days(g), 2 if _is_external(g) else 0),
                   reverse=True)
 
@@ -356,7 +381,7 @@ def weekly_summary_card(groups: list, threshold: int, personal_max: int = 3) -> 
 
     elements.append(_hr())
     elements.append(_div(
-        f"**B  ·  😴  Inactive groups (>{quiet_floor} days) — {len(inactive)}**"))
+        f"**B  ·  😴  Inactive groups ({quiet_floor}+ days) — {len(inactive)}**"))
 
     if inactive:
         rows = []
@@ -368,17 +393,25 @@ def weekly_summary_card(groups: list, threshold: int, personal_max: int = 3) -> 
             days = _days(g)
             rows.append({
                 "group": name,
-                "creator": _creator_short(g.get("creator_name")),
+                "creator": _owner_cell(g),
                 "members": str(n) if n is not None else "—",
-                # colored tag so the severity pops: red = quiet 90d+, orange = 30d+
-                "days": _opt(f"{days}d", "red" if days >= 90 else "orange"),
+                # Number only — Lark clips option chips past ~3 characters
+                # ("100d" rendered as "l00c"), so the unit lives in the header.
+                # Orange = warning band, red = past the inactivity threshold;
+                # same vocabulary as the stat tiles above.
+                "days": _opt(str(days),
+                             "red" if days >= threshold else "orange"),
             })
         elements.append(_table(
-            [_col("group", "Group", width="44%"),
-             _col("creator", "Creator", width="30%"),
-             _col("members", "Mbrs", align="right", width="10%"),
-             _col("days", "Idle", dtype="options", width="16%")],
+            [_col("group", "Group", width="42%"),
+             _col("creator", "Owner", width="26%"),
+             _col("members", "Mbrs", align="right", width="12%"),
+             _col("days", "Idle days", dtype="options", width="20%")],
             rows, compact=True))
+        elements.append(_note(
+            f"🟠  quiet {quiet_floor}+ days   ·   "
+            f"🔴  past the {threshold}-day inactive limit   ·   "
+            f"🔁  owner changed, name not known yet   ·   🚪  owner left the company"))
     else:
         elements.append(_note(f"None — every group was active in the last "
                               f"{quiet_floor} days 🎉"))

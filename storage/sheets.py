@@ -34,9 +34,36 @@ GROUPS_COLUMNS = [
     "chat_id", "group_name", "creator_id", "creator_name",
     "created_at",
     "member_count", "external",   # members at creation; "Yes"/"No" external users
-    "last_activity_at", "days_inactive", "state",  # active / warning / inactive
+    # state: active / warning / inactive / deleted. "deleted" is terminal —
+    # the row is FROZEN: activity is never recomputed and it never alerts again.
+    # For a deleted group last_activity_at holds the dissolution time (being
+    # dissolved IS the last thing that happened to it).
+    "last_activity_at", "days_inactive", "state",
     "last_checked_at", "last_activity_source", "last_activity_event_name",
+    "deleted_by",                 # who dissolved it, from im_delete_chat
+    # Ownership (ownership.py). owner_id / owner_name = who owns it NOW;
+    # owner_status says how we know:
+    #   creator      the creator still owns it (default at creation)
+    #   transferred  im_forward_chatadmin named the new owner (owner_id from
+    #                the drawer key im_forward_adminlist; owner_name is
+    #                back-filled once we've seen that person in the log)
+    #   named        a person told us — picker card or admin edit
+    #   left         the current owner left the organisation (leavers.py)
+    #   unknown      a transfer was seen without a new-owner id (not observed)
+    # owner_transferred_at / _from record the last hand-over itself.
+    "owner_transferred_at", "owner_transferred_from",
+    "owner_id", "owner_name",
+    # Set from user_active_exit_team (leavers.py) when the creator left the
+    # company. Never DM this creator. Blank is NOT proof they are still here —
+    # only self-initiated exits emit the event.
+    "creator_left_at",
+    # New columns go at the END — _ensure() only rewrites the header row, so
+    # inserting one in the middle would shift every existing row's data.
+    "owner_status",
+    "last_activity_by",           # operator of the newest activity event
 ]
+
+STATE_DELETED = "deleted"
 
 ALERT_LOG_COLUMNS = [
     "timestamp", "admin_id", "chat_id", "group_name", "alert_type",
@@ -47,10 +74,23 @@ META_COLUMNS = ["key", "value"]
 
 # ---- groups tab look & feel (see SheetsClient.format_groups_tab) ----
 EXTERNAL_VALUES = ["No", "Yes"]          # dropdown values for the external column
-CENTERED_COLUMNS = ["member_count", "external", "days_inactive", "state"]
+STATE_VALUES = ["active", "warning", "inactive", "deleted"]
+OWNER_CREATOR, OWNER_TRANSFERRED, OWNER_NAMED, OWNER_LEFT, OWNER_UNKNOWN = (
+    "creator", "transferred", "named", "left", "unknown")
+OWNER_STATUS_VALUES = [OWNER_CREATOR, OWNER_TRANSFERRED, OWNER_NAMED,
+                       OWNER_LEFT, OWNER_UNKNOWN]
+CENTERED_COLUMNS = ["member_count", "external", "days_inactive", "state",
+                    "owner_status"]
 DEFAULT_ROW_HEIGHT = 21                  # Sheets' own default — keeps rows uniform
 DAYS_INACTIVE_RED = "#C5221F"
 DAYS_INACTIVE_AMBER = "#B06000"
+
+
+def _group_row(**fields) -> list:
+    """A groups-tab row in GROUPS_COLUMNS order; unnamed columns stay blank.
+    Building rows by name is what keeps the two append paths aligned with the
+    header when a column is added."""
+    return [fields.get(c, "") for c in GROUPS_COLUMNS]
 
 
 def _rgb(hex_color: str) -> dict[str, float]:
@@ -73,7 +113,11 @@ class _CachedTab:
     def records(self, force: bool = False) -> list[dict]:
         now = time.time()
         if force or self._cache is None or (now - self._cache_at) > CACHE_TTL:
-            self._cache = self.ws.get_all_records()
+            # Every cell as text — the same type the writes patch into the
+            # cache. gspread's default turns a number-only group name into an
+            # int, and the first .strip() on it killed every refresh from
+            # 2026-09-22 to 2026-10-19.
+            self._cache = self.ws.get_all_records(numericise_ignore=["all"])
             self._cache_at = now
         return self._cache
 
@@ -167,6 +211,10 @@ class SheetsClient:
         try:
             ws = self.ss.worksheet(name)
             if ws.row_values(1) != headers:
+                # A tab created by an older build is too narrow for newly added
+                # columns — widen it first or the header write exceeds the grid.
+                if ws.col_count < len(headers):
+                    ws.add_cols(len(headers) - ws.col_count)
                 ws.update("A1", [headers])
         except gspread.WorksheetNotFound:
             ws = self.ss.add_worksheet(title=name, rows=2000, cols=len(headers))
@@ -238,6 +286,8 @@ class SheetsClient:
         """
         lists = {
             "external": EXTERNAL_VALUES,
+            "state": STATE_VALUES,
+            "owner_status": [""] + OWNER_STATUS_VALUES,
             # "" keeps blank cells valid: a group with no audit event yet.
             "last_activity_event_name": [""] + sorted(self._event_names or []),
         }
@@ -324,11 +374,14 @@ class SheetsClient:
         if self.groups.find_row("chat_id", chat_id):
             return False
         created = created_at or datetime.now(timezone.utc).isoformat()
-        self.groups.append([
-            chat_id, group_name, creator_id, creator_name,
-            created, member_count, external,
-            created, "", "active", "", "created_at_fallback", "",
-        ])
+        self.groups.append(_group_row(
+            chat_id=chat_id, group_name=group_name, creator_id=creator_id,
+            creator_name=creator_name, created_at=created,
+            member_count=member_count, external=external,
+            last_activity_at=created, state="active",
+            last_activity_source="created_at_fallback",
+            owner_id=creator_id, owner_name=creator_name,
+            owner_status=OWNER_CREATOR))
         self._refresh_chips()
         return True
 
@@ -344,12 +397,17 @@ class SheetsClient:
                 continue
             existing.add(chat_id)
             created = rec.get("created_at") or datetime.now(timezone.utc).isoformat()
-            rows.append([
-                chat_id, rec.get("group_name", ""), rec.get("creator_id", ""),
-                rec.get("creator_name", ""),
-                created, rec.get("members", ""), rec.get("external", ""),
-                created, "", "active", "", "created_at_fallback", "",
-            ])
+            rows.append(_group_row(
+                chat_id=chat_id, group_name=rec.get("group_name", ""),
+                creator_id=rec.get("creator_id", ""),
+                creator_name=rec.get("creator_name", ""), created_at=created,
+                member_count=rec.get("members", ""),
+                external=rec.get("external", ""),
+                last_activity_at=created, state="active",
+                last_activity_source="created_at_fallback",
+                owner_id=rec.get("creator_id", ""),
+                owner_name=rec.get("creator_name", ""),
+                owner_status=OWNER_CREATOR))
             added.append(chat_id)
         self.groups.append_many(rows)
         if rows:
@@ -380,19 +438,278 @@ class SheetsClient:
     def get_all_groups(self) -> list[dict]:
         return self.groups.records()
 
+    def get_live_groups(self) -> list[dict]:
+        """Every group that still exists. Deleted groups are excluded from all
+        monitoring — no activity recompute, no alerts, no report rows."""
+        return [g for g in self.groups.records()
+                if str(g.get("state", "")).strip().lower() != STATE_DELETED]
+
+    def mark_groups_deleted(self, deletions: dict[str, dict[str, str]]) -> list[str]:
+        """Tag groups as deleted from im_delete_chat audit records, in ONE batch.
+
+        deletions: chat_id -> {deleted_at, deleted_by, group_name}
+
+        state="deleted" is the tag itself — terminal, and checked by
+        get_live_groups() so the row is never recomputed or alerted on again.
+        The dissolution time goes into last_activity_at, because being
+        dissolved is the last thing that happened to the group.
+
+        Only touches rows that aren't already consistent (state deleted AND
+        deleted_by recorded), so re-scanning the same audit window is idempotent
+        and costs no writes. A row that has drifted either way — state tagged by
+        hand with no deleted_by, or deleted_by written with the state left
+        behind — is repaired here, as long as it is still inside the window.
+        Rows older than that are the one-time repair_deleted_states() pass's job.
+
+        Returns the chat_ids newly tagged (rows that weren't deleted before).
+        """
+        now = datetime.now(timezone.utc)
+        per_row: dict[int, dict[str, str]] = {}
+        tagged: list[str] = []
+        repaired = 0
+        for i, r in enumerate(self.groups.records()):
+            chat_id = str(r.get("chat_id", ""))
+            rec = deletions.get(chat_id)
+            if not rec:
+                continue
+            was_deleted = str(r.get("state", "")).strip().lower() == STATE_DELETED
+            if was_deleted and str(r.get("deleted_by", "")).strip():
+                continue  # already tagged and consistent
+            deleted_at = rec.get("deleted_at", "")
+            fields = {
+                "state": STATE_DELETED,
+                "deleted_by": rec.get("deleted_by", ""),
+                "last_activity_source": "audit_log",
+                "last_activity_event_name": "im_delete_chat",
+            }
+            if deleted_at:
+                fields["last_activity_at"] = deleted_at
+                try:
+                    dt = datetime.fromisoformat(deleted_at.replace("Z", "+00:00"))
+                    fields["days_inactive"] = str((now - dt).days)
+                except ValueError:
+                    pass
+            # The audit record carries the name the group had when it was
+            # deleted — keep it if the sheet's is blank/stale.
+            if rec.get("group_name") and not r.get("group_name"):
+                fields["group_name"] = rec["group_name"]
+            per_row[i + 2] = fields
+            if was_deleted:
+                repaired += 1   # state was already right — filling the gaps
+            else:
+                tagged.append(chat_id)
+        if per_row:
+            self.groups.update_rows_cells(per_row)
+        if repaired:
+            logger.info("Completed %s already-deleted row(s) from the audit log",
+                        repaired)
+        return tagged
+
+    def repair_deleted_states(self) -> list[str]:
+        """One-time repair: every row with deleted_by filled in but state not
+        yet "deleted" gets tagged, in ONE batch. Returns the chat_ids fixed.
+
+        deleted_by is only ever written by mark_groups_deleted(), so a non-empty
+        deleted_by is itself proof the group was dissolved — the state column
+        just never caught up (rows tagged before that write included state, or
+        hand-edited in the sheet). Until it does, get_live_groups() keeps
+        handing the row to the checker, days_inactive keeps climbing and the
+        group re-alerts forever — for a group that no longer exists.
+
+        This is a full-table scan, which is why checker.run_deleted_state_repair()
+        gates it behind a meta flag and runs it once. Steady state is
+        mark_groups_deleted()'s job, and that only touches the rows in the
+        current audit window.
+        """
+        per_row: dict[int, dict[str, str]] = {}
+        fixed: list[str] = []
+        # force=True: this runs once, and it has to see manual sheet edits
+        # rather than whatever the 60s cache was holding.
+        for i, r in enumerate(self.groups.records(force=True)):
+            if not str(r.get("deleted_by", "")).strip():
+                continue
+            if str(r.get("state", "")).strip().lower() == STATE_DELETED:
+                continue  # already consistent
+            per_row[i + 2] = {"state": STATE_DELETED}
+            fixed.append(str(r.get("chat_id", "")))
+        if per_row:
+            self.groups.update_rows_cells(per_row)
+        return fixed
+
+    # ---------- ownership ----------
+    def init_owner_columns(self) -> int:
+        """One-time: give every row without an owner_status its owner.
+
+        The creator owns a group until the audit log says otherwise, so rows
+        that predate the owner columns get owner_id / owner_name = creator and
+        owner_status = "creator". A row where someone already typed an
+        owner_id by hand is respected and becomes "named". Full-table, ONE
+        batch, gated by a meta flag in checker.run_ownership_backfill().
+        Returns the rows set.
+        """
+        per_row: dict[int, dict[str, str]] = {}
+        for i, r in enumerate(self.groups.records(force=True)):
+            if str(r.get("owner_status", "")).strip():
+                continue
+            if str(r.get("state", "")).strip().lower() == STATE_DELETED:
+                continue
+            if str(r.get("owner_id", "")).strip():
+                per_row[i + 2] = {"owner_status": OWNER_NAMED}
+            else:
+                per_row[i + 2] = {"owner_id": str(r.get("creator_id", "")),
+                                  "owner_name": str(r.get("creator_name", "")),
+                                  "owner_status": OWNER_CREATOR}
+        if per_row:
+            self.groups.update_rows_cells(per_row)
+        return len(per_row)
+
+    def mark_owner_transferred(self, transfers: dict[str, dict[str, str]],
+                               people: dict[str, str] | None = None) -> list[str]:
+        """Record ownership transfers from im_forward_chatadmin audit records,
+        in ONE batch. transfers: chat_id -> {transferred_at, transferred_from,
+        new_owner_id}. people: user_id -> display name for naming the new
+        owner; the groups tab's own creators are always consulted too.
+
+        Only the latest transfer per chat is kept: a row already holding this
+        transfer (or a later one) is skipped, so re-scanning an overlapping
+        window is idempotent and costs no writes. Deleted rows are frozen.
+
+        With a new_owner_id the log is authoritative: owner_id is set, the
+        name filled if we know the person (else left blank for
+        fill_owner_names() to complete later) and owner_status becomes
+        "transferred" — whatever a human had typed before. Without one (not
+        observed: 155/155 items carried it, 2026-09-18) a hand-named owner is
+        kept on a first transfer and cleared on a newer one, status "unknown".
+
+        Returns the chat_ids whose transfer was newly recorded or updated.
+        """
+        names = {str(r.get("creator_id", "")): str(r.get("creator_name", ""))
+                 for r in self.groups.records() if r.get("creator_id")}
+        names.update({k: v for k, v in (people or {}).items() if k and v})
+        per_row: dict[int, dict[str, str]] = {}
+        recorded: list[str] = []
+        for i, r in enumerate(self.groups.records()):
+            chat_id = str(r.get("chat_id", ""))
+            rec = transfers.get(chat_id)
+            if not rec:
+                continue
+            if str(r.get("state", "")).strip().lower() == STATE_DELETED:
+                continue  # frozen — nobody owns a dissolved group
+            new_at = str(rec.get("transferred_at", "")).strip()
+            have_at = str(r.get("owner_transferred_at", "")).strip()
+            if not new_at or (have_at and _iso_key(have_at) >= _iso_key(new_at)):
+                continue  # already know about this transfer, or a later one
+            fields = {"owner_transferred_at": new_at,
+                      "owner_transferred_from": rec.get("transferred_from", "")}
+            new_owner = str(rec.get("new_owner_id", "")).strip()
+            status = str(r.get("owner_status", "")).strip().lower()
+            if new_owner:
+                fields.update({"owner_id": new_owner,
+                               "owner_name": names.get(new_owner, ""),
+                               "owner_status": OWNER_TRANSFERRED})
+            elif status == OWNER_NAMED and not have_at:
+                pass  # first transfer we see, and a person already named the owner
+            else:
+                fields.update({"owner_id": "", "owner_name": "",
+                               "owner_status": OWNER_UNKNOWN})
+            per_row[i + 2] = fields
+            recorded.append(chat_id)
+        if per_row:
+            self.groups.update_rows_cells(per_row)
+        return recorded
+
+    def fill_owner_names(self, people: dict[str, str]) -> int:
+        """Name owners we only know by user_id, from people seen as audit
+        operators this run. ONE batch; returns the rows filled."""
+        per_row: dict[int, dict[str, str]] = {}
+        for i, r in enumerate(self.groups.records()):
+            if str(r.get("owner_name", "")).strip():
+                continue
+            name = people.get(str(r.get("owner_id", "")).strip())
+            if name:
+                per_row[i + 2] = {"owner_name": name}
+        if per_row:
+            self.groups.update_rows_cells(per_row)
+        return len(per_row)
+
+    def mark_creators_left(self, leavers: dict[str, dict[str, str]]) -> list[str]:
+        """Record people who left the organisation, in ONE batch.
+        leavers: user_id -> {left_at, name}.
+
+        Two facts per live row, each written only when it is news:
+          - creator_left_at   stamped when the CREATOR is a leaver
+          - owner_status=left set when the CURRENT owner (owner_id, falling
+                              back to creator_id) is a leaver — the person a
+                              cleanup ask would otherwise go to
+        Deleted rows are frozen. Idempotent across overlapping audit windows.
+        Returns the chat_ids touched.
+        """
+        per_row: dict[int, dict[str, str]] = {}
+        marked: list[str] = []
+        for i, r in enumerate(self.groups.records()):
+            if str(r.get("state", "")).strip().lower() == STATE_DELETED:
+                continue  # frozen
+            fields: dict[str, str] = {}
+            creator = str(r.get("creator_id", "")).strip()
+            rec = leavers.get(creator)
+            if rec and not str(r.get("creator_left_at", "")).strip():
+                fields["creator_left_at"] = rec.get("left_at", "")
+            owner = str(r.get("owner_id", "")).strip() or creator
+            if (owner in leavers
+                    and str(r.get("owner_status", "")).strip().lower() != OWNER_LEFT):
+                fields["owner_status"] = OWNER_LEFT
+            if fields:
+                per_row[i + 2] = fields
+                marked.append(str(r.get("chat_id", "")))
+        if per_row:
+            self.groups.update_rows_cells(per_row)
+        return marked
+
+    def set_group_owner(self, chat_id: str, owner_id: str, owner_name: str = "") -> bool:
+        """Record who currently owns a group, as told by a person — the "who
+        owns it now?" picker or an admin. owner_status becomes "named".
+        Returns False if the group is unknown or deleted."""
+        for i, r in enumerate(self.groups.records()):
+            if str(r.get("chat_id", "")) != str(chat_id):
+                continue
+            if str(r.get("state", "")).strip().lower() == STATE_DELETED:
+                return False
+            self.groups.update_cells(i + 2, {"owner_id": owner_id,
+                                             "owner_name": owner_name,
+                                             "owner_status": OWNER_NAMED})
+            return True
+        return False
+
     def bulk_update_group_activity(self, changes: dict[str, dict[str, str]]):
         """Write activity fields for many groups in ONE batch call.
         changes: chat_id -> {last_activity_at, days_inactive, state,
                              last_activity_source, last_activity_event_name}
         May also carry group_name when a group was renamed in Lark. An empty
-        field dict still stamps last_checked_at."""
+        field dict still stamps last_checked_at.
+
+        Rows marked deleted are skipped outright. "deleted" is terminal, and
+        enforcing that HERE — at the single choke point every activity write
+        passes through — is what makes it stick. Relying only on callers to
+        filter with get_live_groups() means one missed filter silently
+        resurrects a dissolved group and restarts the forever-alert bug.
+        """
         now_iso = datetime.now(timezone.utc).isoformat()
+        state_by_row = {
+            i + 2: str(r.get("state", "")).strip().lower()
+            for i, r in enumerate(self.groups.records())
+        }
         per_row: dict[int, dict[str, str]] = {}
+        skipped = 0
         for chat_id, fields in changes.items():
             row = self.groups.find_row("chat_id", chat_id)
             if not row:
                 continue
+            if state_by_row.get(row) == STATE_DELETED:
+                skipped += 1
+                continue
             per_row[row] = {**fields, "last_checked_at": now_iso}
+        if skipped:
+            logger.info("Skipped %s deleted row(s) — frozen", skipped)
         self.groups.update_rows_cells(per_row)
 
     def adjust_member_counts(self, deltas: dict[str, int]) -> int:
@@ -404,6 +721,8 @@ class SheetsClient:
             delta = deltas.get(str(r.get("chat_id", "")), 0)
             if not delta:
                 continue
+            if str(r.get("state", "")).strip().lower() == STATE_DELETED:
+                continue  # frozen — a dissolved group has no members to count
             try:
                 base = int(r.get("member_count"))
             except (TypeError, ValueError):
@@ -464,6 +783,18 @@ class SheetsClient:
                               value_input_option="RAW")
         self.alerts.invalidate()
         logger.info(f"Pruned alert_log: {len(records) - len(keep_rows)} old rows removed")
+
+
+def _iso_key(value: str):
+    """Sortable key for an ISO timestamp cell; falls back to the raw string for
+    hand-edited values that don't parse, so a comparison never raises."""
+    try:
+        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return (0, dt.timestamp())
+    except ValueError:
+        return (1, value)
 
 
 def get_sheets() -> SheetsClient:

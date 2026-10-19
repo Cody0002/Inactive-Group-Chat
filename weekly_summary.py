@@ -18,7 +18,8 @@ async def run_weekly_summary() -> bool:
     scan). Returns True if a report was sent."""
     logger.info("=== Weekly summary starting ===")
     sheets = get_sheets()
-    groups = sheets.get_all_groups()
+    # Deleted groups are out of scope for every report — they no longer exist.
+    groups = sheets.get_live_groups()
 
     if groups:
         await api.send_message(

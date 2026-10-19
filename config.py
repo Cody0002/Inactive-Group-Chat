@@ -35,8 +35,8 @@ class Settings(BaseSettings):
     # inactivity threshold appear in the daily digest (e.g. 165-179d for 180/15).
     NEAR_INACTIVE_DAYS: int = 15
     REALERT_COOLDOWN_DAYS: int = 7
-    # Weekly report section B: groups quiet for more than this many days.
-    WEEKLY_INACTIVE_DAYS: int = 60
+    # Weekly report section B: groups quiet for at least this many days.
+    WEEKLY_INACTIVE_DAYS: int = 140
 
     # Group size split: <= this many members at creation = "Personal", else "Team".
     PERSONAL_GROUP_MAX_MEMBERS: int = 3
@@ -62,10 +62,19 @@ class Settings(BaseSettings):
         "im_chat_pin_delete,im_chat_pin_stick,im_chat_pin_unstick,"
         "im_export_chat_chatter,im_forward_file,im_savetospace,"
         # Content consumption — also proves the group is alive
+        # (im_download_file is deliberately absent: a real event that Lark's
+        # enum list omits, but it carries only a file id and never names a
+        # chat — 0 of 325 items, 2026-09-18 — so it was a wasted call/hour.)
         "im_chat_previewfile,im_copy_image,im_open_link,im_download,"
-        "im_download_file,im_download_image,im_download_video,"
+        "im_download_image,im_download_video,"
         "im_load_file_to_local,im_snaphot,im_screencap,im_ocr,"
-        "im_read_doc,im_download_doc,im_open_with_3rdApp"
+        "im_read_doc,im_download_doc,im_open_with_3rdApp,"
+        # Measured live 2026-09-18 (30 d): in-chat search 800+ hits / 172
+        # groups, group-photo change 38 hits — both name the chat.
+        "im_chat_pin_sidebar_search,im_chat_avatar_type,"
+        # Other modules use "name@module". A calendar event shared into a
+        # group chat (module 21) names the chat in its drawer — 13 of 44 hits.
+        "cal_share_event@21"
     )
 
 

@@ -109,6 +109,30 @@ async def _refresh_data_locked(activity_lookback_days: int | None,
     except Exception as e:
         logger.warning(f"New-group scan failed: {e}")
 
+    # Tag dissolved groups BEFORE the activity pass, so a group deleted since
+    # the last run is already frozen and skipped below (no recompute, no alert).
+    try:
+        from deletions import scan_deleted_groups
+        await scan_deleted_groups(newgroup_lookback_days)
+    except Exception as e:
+        logger.warning(f"Deleted-group scan failed: {e}")
+
+    # Record ownership changes, so a cleanup ask never goes to a creator who
+    # handed the group to someone else — only the owner can dissolve it.
+    try:
+        from ownership import scan_owner_transfers
+        await scan_owner_transfers(newgroup_lookback_days)
+    except Exception as e:
+        logger.warning(f"Owner-transfer scan failed: {e}")
+
+    # Creators who left the company can't be asked; stamp their rows so the
+    # approval card routes those groups to "needs an owner's name".
+    try:
+        from leavers import scan_leavers
+        await scan_leavers(newgroup_lookback_days)
+    except Exception as e:
+        logger.warning(f"Leaver scan failed: {e}")
+
     # Newest group name per chat_id, gathered from every audit item we read
     # below — a group renamed in Lark gets its sheet row corrected.
     latest_names: dict[str, tuple[int, str]] = {}
@@ -121,11 +145,13 @@ async def _refresh_data_locked(activity_lookback_days: int | None,
     except Exception as e:
         logger.warning(f"Member-count sync failed: {e}")
 
-    groups = sheets.get_all_groups()
-    logger.info(f"Refreshing {len(groups)} group(s)")
+    # Deleted groups (state == "deleted") are frozen — excluded here so their
+    # days_inactive stops climbing and they can never alert again.
+    groups = sheets.get_live_groups()
+    logger.info(f"Refreshing {len(groups)} live group(s)")
 
     now = datetime.now(timezone.utc)
-    audit_activity, activity_names = await _audit_activity_by_chat(
+    audit_activity, activity_names, people = await _audit_activity_by_chat(
         now, activity_lookback_days)
     _merge_chat_names(latest_names, activity_names)
     alerts = 0
@@ -150,10 +176,12 @@ async def _refresh_data_locked(activity_lookback_days: int | None,
             activity_event = group.get("last_activity_event_name", "")
 
         audit_hit = audit_activity.get(chat_id)
+        activity_by: str | None = None   # only rewritten when the log wins
         if audit_hit and audit_hit["dt"] > last_dt:
             last_dt = audit_hit["dt"]
             activity_source = "audit_log"
             activity_event = audit_hit["event_name"]
+            activity_by = audit_hit.get("by_name") or audit_hit.get("by_id") or ""
 
         days = (now - last_dt).days
         state = _state_for(days)
@@ -172,6 +200,8 @@ async def _refresh_data_locked(activity_lookback_days: int | None,
                 "last_activity_source": activity_source,
                 "last_activity_event_name": activity_event,
             })
+            if activity_by is not None:
+                fields["last_activity_by"] = activity_by
 
         # Renamed in Lark since we last saw it? Adopt the newer name so cards
         # and reports never show a stale one.
@@ -193,6 +223,16 @@ async def _refresh_data_locked(activity_lookback_days: int | None,
 
     if changes:
         sheets.bulk_update_group_activity(changes)
+
+    # Owners learned from the audit log arrive as bare user_ids; the name is
+    # filled in as soon as that person shows up as the operator of any event.
+    if people:
+        try:
+            filled = sheets.fill_owner_names(people)
+            if filled:
+                logger.info("Filled %s owner name(s) from audit operators", filled)
+        except Exception as e:
+            logger.warning(f"Owner-name fill failed: {e}")
     data_changed = sum(1 for f in changes.values() if f)
     logger.info(f"Refresh done — {len(changes)} row(s) checked, "
                 f"{data_changed} with data changes, {renames} rename(s), "
@@ -204,6 +244,10 @@ async def run_initial_backfill():
     the audit API's maximum — plus its activity and member changes) so reports
     render instantly from the sheet. Guarded by a meta flag so it runs once."""
     sheets = get_sheets()
+    await run_deletion_backfill()
+    run_deleted_state_repair()
+    await run_ownership_backfill()   # before leavers: owner_status defaults first
+    await run_leaver_backfill()
     if sheets.meta_get("base_built"):
         logger.info("Base already built — normal refresh on startup")
         await refresh_data()
@@ -214,6 +258,115 @@ async def run_initial_backfill():
                        notify_new=False)
     sheets.meta_set("base_built", datetime.now(timezone.utc).isoformat())
     logger.info("=== Base build complete ===")
+
+
+async def run_deletion_backfill():
+    """One-time sweep of the FULL audit retention (180 days) for dissolved
+    groups, so a sheet built before deletion tracking existed gets caught up.
+
+    Has its own meta flag rather than riding on base_built: existing
+    deployments already have base_built set, and would otherwise never sweep
+    the history and would keep tracking groups that no longer exist.
+    """
+    from deletions import AUDIT_RETENTION_DAYS, scan_deleted_groups
+    sheets = get_sheets()
+    if sheets.meta_get("deletions_backfilled"):
+        return
+    logger.info(f"=== One-time {AUDIT_RETENTION_DAYS}-day deleted-group sweep ===")
+    try:
+        tagged = await scan_deleted_groups(AUDIT_RETENTION_DAYS)
+    except Exception as e:
+        logger.warning(f"Deletion backfill failed (will retry next start): {e}")
+        return
+    sheets.meta_set("deletions_backfilled", datetime.now(timezone.utc).isoformat())
+    logger.info(f"=== Deletion sweep complete — {len(tagged)} group(s) tagged ===")
+
+
+async def run_ownership_backfill():
+    """One-time catch-up of the owner columns, in two gated steps:
+
+    1. every row gets its owner (= creator until the log says otherwise),
+    2. a FULL-retention (180-day) sweep of im_forward_chatadmin records who
+       owns each transferred group now.
+
+    Each step has its own meta flag, same reasoning as run_deletion_backfill():
+    existing deployments already have base_built set and would otherwise never
+    revisit their history. From here on the hourly scan keeps them current.
+    Runs before run_leaver_backfill() so a leaver overrides the default.
+    """
+    from deletions import AUDIT_RETENTION_DAYS
+    from ownership import scan_owner_transfers
+    sheets = get_sheets()
+    if not sheets.meta_get("owner_columns_initialised"):
+        try:
+            n = sheets.init_owner_columns()
+        except Exception as e:
+            logger.warning(f"Owner-column init failed (will retry next start): {e}")
+            return
+        sheets.meta_set("owner_columns_initialised",
+                        datetime.now(timezone.utc).isoformat())
+        logger.info("=== Owner columns initialised on %s row(s) ===", n)
+    if sheets.meta_get("owner_transfers_backfilled"):
+        return
+    logger.info(f"=== One-time {AUDIT_RETENTION_DAYS}-day owner-transfer sweep ===")
+    try:
+        recorded = await scan_owner_transfers(AUDIT_RETENTION_DAYS)
+    except Exception as e:
+        logger.warning(f"Owner-transfer backfill failed (will retry next start): {e}")
+        return
+    sheets.meta_set("owner_transfers_backfilled",
+                    datetime.now(timezone.utc).isoformat())
+    logger.info(f"=== Owner-transfer sweep complete — {len(recorded)} group(s) marked ===")
+
+
+async def run_leaver_backfill():
+    """One-time sweep of the FULL audit retention (180 days) for people who
+    left, so groups whose creator is already gone are marked before anyone is
+    asked about them. Own meta flag, same reasoning as run_deletion_backfill().
+    """
+    from deletions import AUDIT_RETENTION_DAYS
+    from leavers import scan_leavers
+    sheets = get_sheets()
+    if sheets.meta_get("leavers_backfilled"):
+        return
+    logger.info(f"=== One-time {AUDIT_RETENTION_DAYS}-day leaver sweep ===")
+    try:
+        marked = await scan_leavers(AUDIT_RETENTION_DAYS)
+    except Exception as e:
+        logger.warning(f"Leaver backfill failed (will retry next start): {e}")
+        return
+    sheets.meta_set("leavers_backfilled", datetime.now(timezone.utc).isoformat())
+    logger.info(f"=== Leaver sweep complete — {len(marked)} group(s) marked ===")
+
+
+def run_deleted_state_repair():
+    """One-time pass over the whole groups tab: any row with deleted_by filled
+    in but state not "deleted" gets tagged, so it stops being monitored.
+
+    Catches rows that predate the state write, and rows fixed by hand in the
+    sheet. Runs after run_deletion_backfill() so anything the audit sweep can
+    still see is already tagged and this only picks up the true leftovers.
+
+    Has its own meta flag, same reasoning as run_deletion_backfill(): existing
+    deployments already have base_built set and would otherwise never revisit
+    their history. From here on mark_groups_deleted() keeps state and deleted_by
+    in step, touching only the rows in the current audit window — no repeat of
+    this full-table scan.
+    """
+    sheets = get_sheets()
+    if sheets.meta_get("deleted_state_repaired"):
+        return
+    try:
+        fixed = sheets.repair_deleted_states()
+    except Exception as e:
+        logger.warning(f"Deleted-state repair failed (will retry next start): {e}")
+        return
+    sheets.meta_set("deleted_state_repaired", datetime.now(timezone.utc).isoformat())
+    if fixed:
+        logger.info("=== Deleted-state repair — %s row(s) set to deleted: %s ===",
+                    len(fixed), ", ".join(fixed[:10]))
+    else:
+        logger.info("=== Deleted-state repair — nothing to fix ===")
 
 
 async def _sync_member_counts(sheets, now: datetime) -> dict[str, tuple[int, str]]:
@@ -323,7 +476,7 @@ def _today_window(now: datetime) -> tuple[datetime, datetime, str]:
 
 
 async def _send_daily_digest(sheets, now: datetime) -> bool:
-    groups = sheets.get_all_groups()
+    groups = sheets.get_live_groups()
     start, end, label = _today_window(now)
 
     new_groups = []
@@ -359,14 +512,15 @@ async def _send_daily_digest(sheets, now: datetime) -> bool:
 async def _audit_activity_by_chat(
         now: datetime,
         lookback_days: int | None = None,
-) -> tuple[dict[str, dict], dict[str, tuple[int, str]]]:
-    """Return (activity per chat_id, newest (event_time, group_name) per chat_id)."""
+) -> tuple[dict[str, dict], dict[str, tuple[int, str]], dict[str, str]]:
+    """Return (activity per chat_id, newest (event_time, group_name) per
+    chat_id, people seen as operators: user_id -> display name)."""
     if not settings.AUDIT_ACTIVITY_ENABLED:
-        return {}, {}
+        return {}, {}, {}
 
-    events = _audit_activity_events()
+    events = _audit_activity_specs()
     if not events:
-        return {}, {}
+        return {}, {}, {}
 
     if lookback_days is None:
         lookback_days = settings.AUDIT_ACTIVITY_LOOKBACK_DAYS
@@ -375,13 +529,15 @@ async def _audit_activity_by_chat(
     latest = int(now.timestamp())
     latest_by_chat: dict[str, dict] = {}
     latest_names: dict[str, tuple[int, str]] = {}
+    people: dict[str, str] = {}
+    from deletions import _operator_name
 
     logger.info(
         "Loading audit activity for %s event(s), lookback=%sd",
         len(events),
         lookback_days,
     )
-    for event_name in events:
+    for event_name, event_module in events:
         page_token = None
         pages = 0
         count = 0
@@ -391,7 +547,7 @@ async def _audit_activity_by_chat(
                     oldest=oldest,
                     latest=latest,
                     event_name=event_name,
-                    event_module=MESSENGER_EVENT_MODULE,
+                    event_module=event_module,
                     page_size=AUDIT_PAGE_SIZE,
                     page_token=page_token,
                 )
@@ -407,6 +563,10 @@ async def _audit_activity_by_chat(
                 if not event_time:
                     continue
                 _track_chat_names(latest_names, item, event_time)
+                op_id = str(item.get("operator_value") or "").strip()
+                op_name = _operator_name(item)
+                if op_id and op_name:
+                    people[op_id] = op_name
                 for chat_id in _chat_ids_from_audit_item(item):
                     current = latest_by_chat.get(chat_id)
                     if not current or event_time > current["event_time"]:
@@ -414,6 +574,8 @@ async def _audit_activity_by_chat(
                             "event_time": event_time,
                             "dt": datetime.fromtimestamp(event_time, tz=timezone.utc),
                             "event_name": item.get("event_name", event_name),
+                            "by_id": op_id,        # → last_activity_by
+                            "by_name": op_name,
                         }
 
             if not data.get("has_more"):
@@ -429,22 +591,53 @@ async def _audit_activity_by_chat(
             pages,
         )
 
-    logger.info("Audit activity mapped to %s chat(s)", len(latest_by_chat))
-    return latest_by_chat, latest_names
+    logger.info("Audit activity mapped to %s chat(s), %s operator(s) seen",
+                len(latest_by_chat), len(people))
+    return latest_by_chat, latest_names, people
 
 
 def activity_event_names() -> list[str]:
     """Every event name that can end up in last_activity_event_name — the
-    dropdown values for that column on the groups tab."""
-    return sorted(set(_audit_activity_events()) | set(MEMBER_EVENTS))
+    dropdown values for that column on the groups tab.
+
+    im_delete_chat is included as a VALUE even though it is deliberately not in
+    AUDIT_ACTIVITY_EVENTS: dissolving a group is not proof of life, so it must
+    never reset days_inactive — but it is what a deleted row's
+    last_activity_at records, so the chip has to accept it.
+    """
+    from deletions import DELETE_EVENT
+    return sorted(set(_audit_activity_events()) | set(MEMBER_EVENTS)
+                  | {DELETE_EVENT})
+
+
+def _audit_activity_specs() -> list[tuple[str, int]]:
+    """(event_name, event_module) for every entry in AUDIT_ACTIVITY_EVENTS.
+
+    Entries are Messenger (module 2) events unless suffixed "@<module>", e.g.
+    "cal_share_event@21": a calendar event shared INTO a group chat is logged
+    under the Calendar module but names the chat in its drawer, so it still
+    proves the group is alive. _chat_ids_from_audit_item() finds it by walking
+    every string for an oc_ id.
+    """
+    specs: list[tuple[str, int]] = []
+    for raw in settings.AUDIT_ACTIVITY_EVENTS.split(","):
+        raw = raw.strip()
+        if not raw:
+            continue
+        name, _, module = raw.partition("@")
+        try:
+            specs.append((name.strip(),
+                          int(module) if module else MESSENGER_EVENT_MODULE))
+        except ValueError:
+            logger.warning("Bad AUDIT_ACTIVITY_EVENTS entry %r — expected "
+                           "name or name@module", raw)
+    return specs
 
 
 def _audit_activity_events() -> list[str]:
-    return [
-        event.strip()
-        for event in settings.AUDIT_ACTIVITY_EVENTS.split(",")
-        if event.strip()
-    ]
+    """Bare event names (no @module) — the values last_activity_event_name can
+    take, hence the dropdown chips on the groups tab."""
+    return [name for name, _ in _audit_activity_specs()]
 
 
 def _audit_event_time(item: dict) -> int | None:
